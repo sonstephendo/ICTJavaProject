@@ -1,7 +1,6 @@
 package com.ictproject.student.view.modules;
 
-import com.ictproject.student.MainApp;
-import com.ictproject.student.model.DBConnect;
+import com.ictproject.student.ulti.DBConnect;
 import com.ictproject.student.model.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -15,8 +14,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
-import javax.naming.Name;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable{
@@ -53,6 +54,8 @@ public class ProfileController implements Initializable{
     @FXML
     private JFXButton searchButton;
 
+    private ResultSet rs;
+
     /**
      * The data as observable list of student data from databases
      */
@@ -79,13 +82,27 @@ public class ProfileController implements Initializable{
     // TODO: 11/03/2018  fix some exception 
     @FXML
     private void searchHandle(ActionEvent event) {
-        DBConnect connect = new DBConnect();
-        connect.setProfileController(this);
+        DBConnect dbConnect = new DBConnect();
+        Connection connection = dbConnect.getConnect();
+        dbConnect.setProfileController(this);
+
         students.getItems().clear();
+
         if (SnumFilter.isSelected()) {
-            connect.getData(Integer.parseInt(searchField.getText()));
+            String query = "SELECT * FROM Student WHERE NAME LIKE '%" + SnumFilter.getText() + "%'";
+            try {
+                rs = connection.createStatement().executeQuery(query);
+                dbConnect.setRs(this.rs);
+                System.out.println("Records from Databases");
+                dbConnect.readData();
+
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            dbConnect.getData(Integer.parseInt(searchField.getText()));
         } else {
-            connect.getData(searchField.getText());
+            dbConnect.getData(searchField.getText());
         }
 
         students.setItems(studentData);

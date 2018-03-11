@@ -1,15 +1,10 @@
 package com.ictproject.student;
 
-import com.ictproject.student.model.DBConnect;
-import com.ictproject.student.ulti.DBHelper;
-import com.ictproject.student.model.User;
 import com.ictproject.student.view.AdminManagerController;
 import com.ictproject.student.view.DashboardController;
 import com.ictproject.student.view.LoginController;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -32,7 +27,7 @@ public class MainApp extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Student Manager System");
 
@@ -59,7 +54,7 @@ public class MainApp extends Application {
             // Load the fxml file and create a new stage for Login
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/Login.fxml"));
-            AnchorPane loginLayout = (AnchorPane) loader.load();
+            AnchorPane loginLayout = loader.load();
 
             // Create the dialog stage
             Stage loginStage = new Stage();
@@ -89,7 +84,7 @@ public class MainApp extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("view/AdminManager.fxml"));
-            rootLayout = (AnchorPane) loader.load();
+            rootLayout = loader.load();
 
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -130,21 +125,6 @@ public class MainApp extends Application {
 
     }
 
-    /**
-     * Create and connect with mysql database
-     */
-//    private void connectDatabaseAndGetStudentDetail() {
-//        DBConnect connect = new DBConnect();
-//        connect.setMainApp(this);
-//        connect.getData();
-//    }
-
-    private void connectDB() {
-        DBHelper dbHelper = new DBHelper();
-        Connection connection = DBHelper.getRemoteConnection();
-        System.out.println("Get connection " + connection);
-
-    }
 
     public Stage getPrimaryStage() {
         return primaryStage;
