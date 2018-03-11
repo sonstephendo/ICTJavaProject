@@ -1,0 +1,26 @@
+/*sample .css*/
+.background {
+    -fx-background-color: #1d1d1d;
+}
+
+.fn-14 {
+    -fx-font-size: 14px;
+}
+.fn-16 {
+    -fx-font-size: 16px;
+}
+.fn-18 {
+    -fx-font-size: 18px;
+}
+.fn-24 {
+    -fx-font-size: 24px;
+}
+.fn-32 {
+    -fx-font-size: 32px;
+}
+.fn-48 {
+    -fx-font-size: 48px;
+}
+.fn-64 {
+    -fx-font-size: 64px;
+}
