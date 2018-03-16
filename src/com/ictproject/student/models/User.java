@@ -1,4 +1,4 @@
-package com.ictproject.student.model;
+package com.ictproject.student.models;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

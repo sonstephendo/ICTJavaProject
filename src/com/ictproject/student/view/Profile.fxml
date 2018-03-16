@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.view.modules.ProfileController">
+<AnchorPane prefHeight="750.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.controller.ProfileController">
    <children>
       <StackPane prefHeight="750.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -43,8 +43,8 @@
                               <ToggleGroup fx:id="filter" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton fx:id="NameFilter" layoutX="216.0" layoutY="54.0" text="Name" textFill="WHITE" toggleGroup="$filter" />
-                        <JFXTextField fx:id="searchField" alignment="CENTER" layoutX="310.0" layoutY="50.0" onAction="#searchHandle" prefHeight="25.0" prefWidth="300.0" promptText="Search by name or id" unFocusColor="WHITE" />
+                        <JFXRadioButton fx:id="NameFilter" layoutX="216.0" layoutY="54.0" text="firstName" textFill="WHITE" toggleGroup="$filter" />
+                        <JFXTextField fx:id="searchField" alignment="CENTER" layoutX="310.0" layoutY="50.0" onAction="#searchHandle" prefHeight="25.0" prefWidth="300.0" promptText="Search by firstName or id" unFocusColor="WHITE" />
                         <JFXButton fx:id="searchButton" layoutX="620.0" layoutY="50.0" onAction="#searchHandle" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: #0860f1;" text="Search" textFill="WHITE">
                            <font>
                               <Font size="13.0" />

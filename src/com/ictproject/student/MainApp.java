@@ -1,8 +1,9 @@
 package com.ictproject.student;
 
-import com.ictproject.student.view.AdminManagerController;
-import com.ictproject.student.view.DashboardController;
-import com.ictproject.student.view.LoginController;
+import com.ictproject.student.controller.AdminManagerController;
+import com.ictproject.student.controller.ControllerConstants;
+import com.ictproject.student.controller.DashboardController;
+import com.ictproject.student.controller.LoginController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 public class MainApp extends Application {
 
@@ -29,7 +29,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Student Manager System");
+        this.primaryStage.setTitle(ControllerConstants.APP_TITLE);
 
         primaryStage.getIcons().add(new Image("img/icons8_Graduation_Cap_32px.png"));
 
@@ -53,7 +53,7 @@ public class MainApp extends Application {
         try {
             // Load the fxml file and create a new stage for Login
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/Login.fxml"));
+            loader.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.LOGIN_VIEW));
             AnchorPane loginLayout = loader.load();
 
             // Create the dialog stage
@@ -105,7 +105,7 @@ public class MainApp extends Application {
     public void showDashboard() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/Dashboard.fxml"));
+            loader.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.DASH_BOARD_VIEW));
             StackPane dashboard = loader.load();
 
             Scene scene = new Scene(dashboard);

@@ -1,4 +1,4 @@
-package com.ictproject.student.view;
+package com.ictproject.student.controller;
 
 import com.ictproject.student.MainApp;
 import com.jfoenix.controls.JFXButton;
@@ -10,12 +10,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.net.URL;

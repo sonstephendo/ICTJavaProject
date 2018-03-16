@@ -1,7 +1,7 @@
-package com.ictproject.student.view.modules;
+package com.ictproject.student.controller;
 
 import com.ictproject.student.ulti.DBConnect;
-import com.ictproject.student.model.User;
+import com.ictproject.student.models.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;

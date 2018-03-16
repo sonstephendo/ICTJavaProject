@@ -1,10 +1,8 @@
-package com.ictproject.student.view;
+package com.ictproject.student.controller;
 
 import com.ictproject.student.MainApp;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPopup;
-import com.jfoenix.controls.JFXRippler;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -81,7 +78,10 @@ public class DashboardController implements Initializable{
 
     private void setNode(Node node) {
         holderPane.getChildren().clear();
-        holderPane.getChildren().add((Node) node);
+        if (node != null) {
+            holderPane.getChildren().add(node);
+        }
+
 //        FadeTransition ft = new FadeTransition(Duration.millis(1500));
 //        ft.setNode(node);
 //        ft.setFromValue(0.1);
@@ -94,19 +94,19 @@ public class DashboardController implements Initializable{
     private void createPages() {
         try {
 //            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(getClass().getResource("modules/Overview.fxml"));
+//            loader.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.PROFILE_VIEW));
 //            home = loader.load();
 //
 //            FXMLLoader loader1 = new FXMLLoader();
-//            loader1.setLocation(getClass().getResource("modules/Profile.fxml"));
+//            loader1.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.OVER_VIEW_VIEW));
 //            list = loader1.load();
 //
 //            FXMLLoader loader2 = new FXMLLoader();
-//            loader2.setLocation(getClass().getResource("modules/Register.fxml"));
+//            loader2.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.REGISTER_VIEW));
 //            add = loader2.load();
-            home = FXMLLoader.load(getClass().getResource("modules/Overview.fxml"));
-            list = FXMLLoader.load(getClass().getResource("modules/Profile.fxml"));
-            add = FXMLLoader.load(getClass().getResource("modules/Register.fxml"));
+            add = FXMLLoader.load(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.REGISTER_VIEW));
+            home = FXMLLoader.load(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.OVER_VIEW_VIEW));
+            list = FXMLLoader.load(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.PROFILE_VIEW));
 
             //set up default node on page load
             setNode(home);

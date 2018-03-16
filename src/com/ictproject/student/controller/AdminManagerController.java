@@ -1,7 +1,7 @@
-package com.ictproject.student.view;
+package com.ictproject.student.controller;
 
 import com.ictproject.student.MainApp;
-import com.ictproject.student.model.User;
+import com.ictproject.student.models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
