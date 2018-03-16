@@ -1,8 +1,7 @@
 package com.ictproject.student.ulti;
 
-import com.ictproject.student.MainApp;
-import com.ictproject.student.model.User;
-import com.ictproject.student.view.modules.ProfileController;
+import com.ictproject.student.models.User;
+import com.ictproject.student.controller.ProfileController;
 
 import java.sql.*;
 
