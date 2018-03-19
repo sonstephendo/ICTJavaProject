@@ -21,9 +21,6 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable{
 
     @FXML
-    private StackPane stackPane;
-
-    @FXML
     private AnchorPane sideAnchor;
 
     @FXML
@@ -44,17 +41,6 @@ public class DashboardController implements Initializable{
     @FXML
     private AnchorPane holderPane;
 
-    @FXML
-    private VBox overflowContainer;
-
-    @FXML
-    private JFXButton btnClose;
-
-    @FXML
-    private JFXButton btnLogOut2;
-
-    @FXML
-    private Label lblMenu;
 
     private MainApp mainApp;
 
@@ -62,14 +48,14 @@ public class DashboardController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        openMenus();
+//        openMenus();
         createPages();
     }
 
-    private void openMenus() {
-        JFXPopup popup = new JFXPopup(overflowContainer);
-        lblMenu.setOnMouseClicked(event -> {popup.show(lblMenu, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT, -10, 50);});
-    }
+//    private void openMenus() {
+//        JFXPopup popup = new JFXPopup(overflowContainer);
+//        lblMenu.setOnMouseClicked(event -> {popup.show(lblMenu, JFXPopup.PopupVPosition.TOP, JFXPopup.PopupHPosition.RIGHT, -10, 50);});
+//    }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
