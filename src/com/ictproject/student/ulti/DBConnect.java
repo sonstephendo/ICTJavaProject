@@ -72,7 +72,7 @@ public class DBConnect extends Configs{
             String Level = rs.getString("Level");
             int Age = Integer.parseInt(rs.getString("Age"));
 
-            profileController.getStudentData().add(new User(Snum, Name, Major, Level, Age));
+//            profileController.getStudentData().add(new User(Snum, Name, Major, Level, Age));
             System.out.println(Snum +"\t" + Name +"\t" + Major +"\t" + Level +"\t" + Age);
         }
     }

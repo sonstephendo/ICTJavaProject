@@ -1,5 +1,9 @@
 package com.ictproject.student.controller;
 
+import com.ictproject.student.models.Student;
+import com.ictproject.student.models.StudentCredit;
+import com.ictproject.student.models.StudentYearly;
+import com.ictproject.student.ulti.App;
 import com.ictproject.student.ulti.DBConnect;
 import com.ictproject.student.models.User;
 import com.jfoenix.controls.JFXButton;
@@ -25,22 +29,19 @@ public class ProfileController implements Initializable{
     private AnchorPane holderPane;
 
     @FXML
-    private TableView<User> students;
+    private TableView<Student> students;
 
     @FXML
-    private TableColumn<User, Number> Snum;
+    private TableColumn<Student, Number> studentID;
 
     @FXML
-    private TableColumn<User, String> Name;
+    private TableColumn<Student, String> firstName;
 
     @FXML
-    private TableColumn<User, String> Major;
+    private TableColumn<Student, String> lastName;
 
     @FXML
-    private TableColumn<User, String> Level;
-
-    @FXML
-    private TableColumn<User, Number> Age;
+    private TableColumn<Student, String> studentType;
 
     @FXML
     private JFXRadioButton SnumFilter;
@@ -59,23 +60,34 @@ public class ProfileController implements Initializable{
     /**
      * The data as observable list of student data from databases
      */
-    private ObservableList<User> studentData = FXCollections.observableArrayList();
+    private ObservableList<Student> studentData = FXCollections.observableArrayList();
+
+    public ProfileController() {
+    }
 
     /**
      *
      * @return Main observable list of Student Data
      */
-    public ObservableList<User> getStudentData() {
+    public ObservableList<Student> getStudentData() {
         return studentData;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Initialize the student table, The cell must know which part of "tableUser" it needs to display
-        Snum.setCellValueFactory(cellData -> cellData.getValue().snumProperty());
-        Name.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        Major.setCellValueFactory(cellData -> cellData.getValue().majorProperty());
-        Level.setCellValueFactory(cellData -> cellData.getValue().levelProperty());
-        Age.setCellValueFactory(cellData -> cellData.getValue().ageProperty());
+
+
+        studentID.setCellValueFactory(cellData -> cellData.getValue().studentIDProperty());
+        firstName.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        lastName.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+        studentType.setCellValueFactory(cellData -> cellData.getValue().studentTypeProperty());
+
+        App initData = new App();
+        initData.setController(this);
+        initData.addListStudent();
+        System.out.println(studentData.size());
+
+        students.setItems(studentData);
         // TODO: 09/03/2018  http://code.makery.ch/blog/javafx-8-tableview-cell-renderer/ Cell Factory for custom the display(specially DateFormatter)
     }
 
@@ -106,6 +118,5 @@ public class ProfileController implements Initializable{
         }
 
         students.setItems(studentData);
-
     }
 }

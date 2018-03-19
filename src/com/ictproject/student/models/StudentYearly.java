@@ -6,8 +6,9 @@ import javafx.beans.property.StringProperty;
 public class StudentYearly extends Student {
     private final StringProperty year;
 
-    public StudentYearly(String firstName, String lastName, int studentID, String gender, String birthday, String phone, String email, String year) {
-        super(firstName, lastName, studentID, gender, birthday, phone, email);
+
+    public StudentYearly(String firstName, String lastName, int studentID, String gender, String birthday, String phone, String email, String address, String year) {
+        super(firstName, lastName, studentID, gender, birthday, phone, email, address, "Yearly");
         this.year = new SimpleStringProperty(year);
     }
 
