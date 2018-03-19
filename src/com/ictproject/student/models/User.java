@@ -20,7 +20,6 @@ public class User {
         this.age = new SimpleIntegerProperty(age);
     }
 
-
     public int getSnum() {
         return snum.get();
     }
