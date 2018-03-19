@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXToolbar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
@@ -12,159 +11,119 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.controller.DashboardController">
-   <children>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="784.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.controller.DashboardController">
+   <top>
+      <AnchorPane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3F51B5;" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="overflowContainer" snapToPixel="false">
-               <children>
-                  <JFXButton fx:id="btnClose" alignment="BASELINE_LEFT" prefHeight="36.0" prefWidth="200.0" text="Exit">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                     <graphic>
-                        <MaterialDesignIconView glyphName="POWER" size="16" wrappingWidth="40.0" />
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="btnLogOut2" alignment="BASELINE_LEFT" prefHeight="36.0" prefWidth="200.0" text="Log out">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                     <graphic>
-                        <MaterialDesignIconView glyphName="LOGOUT" size="16" wrappingWidth="40.0" />
-                     </graphic>
-                  </JFXButton>
-               </children>
-            </VBox>
+            <Label textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="DOTS_VERTICAL" size="22" />
+               </graphic>
+            </Label>
+            <Text fill="WHITE" layoutX="504.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT MANAGEMENT SYSTEM">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXToolbar prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #3F51B5;">
-               <center>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="STUDENT MANAGEMENT SYSTEM" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
-               </center>
-               <right>
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="30.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Label fx:id="lblMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="27.0">
-                           <graphic>
-                              <MaterialDesignIconView fill="WHITE" glyphName="DOTS_VERTICAL" size="22" wrappingWidth="27.0" />
-                           </graphic>
-                        </Label>
-                     </children>
-                  </HBox>
-               </right>
-            </JFXToolbar>
-            <HBox prefHeight="537.0" prefWidth="1280.0" VBox.vgrow="ALWAYS">
+            <AnchorPane fx:id="sideAnchor" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <AnchorPane fx:id="sideAnchor" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                  <GridPane layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <GridPane layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#openHome" prefHeight="36.0" prefWidth="200.0" text="Home">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="HOME" size="16" text="" wrappingWidth="40" />
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="btnAdd" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#openAddStudent" prefHeight="36.0" prefWidth="200.0" text="Add student" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="PLUS_SQUARE" size="16" wrappingWidth="40" />
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="btnView" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="46.0" onAction="#openListStudent" prefHeight="36.0" prefWidth="200.0" text="View students" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="EYE" size="16" wrappingWidth="40" />
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="76.0" onAction="#logOff" prefHeight="36.0" prefWidth="200.0" text="Log out" GridPane.rowIndex="3">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="SIGN_OUT" size="16" wrappingWidth="40" />
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                              <JFXButton fx:id="btnExit" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" onAction="#exit" prefHeight="36.0" prefWidth="200.0" text="Exit" GridPane.rowIndex="4">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="CLOSE" size="16" wrappingWidth="40" />
-                                 </graphic>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </JFXButton>
-                           </children>
-                        </GridPane>
+                        <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#openHome" prefHeight="36.0" prefWidth="200.0" text="Home">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="HOME" size="16" text="" wrappingWidth="40" />
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnAdd" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#openAddStudent" prefHeight="36.0" prefWidth="200.0" text="Add student" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="PLUS_SQUARE" size="16" wrappingWidth="40" />
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnView" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="46.0" onAction="#openListStudent" prefHeight="36.0" prefWidth="200.0" text="View students" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="EYE" size="16" wrappingWidth="40" />
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="76.0" onAction="#logOff" prefHeight="36.0" prefWidth="200.0" text="Log out" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="SIGN_OUT" size="16" wrappingWidth="40" />
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnExit" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="106.0" onAction="#exit" prefHeight="36.0" prefWidth="200.0" text="Exit" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView glyphName="CLOSE" size="16" wrappingWidth="40" />
+                           </graphic>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </JFXButton>
                      </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="holderPane" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1080.0" HBox.hgrow="ALWAYS" />
+                  </GridPane>
                </children>
-            </HBox>
+            </AnchorPane>
+            <AnchorPane fx:id="holderPane" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
-      </VBox>
-   </children>
-</AnchorPane>
+      </HBox>
+   </center>
+</BorderPane>
