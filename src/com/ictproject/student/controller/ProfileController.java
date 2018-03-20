@@ -35,8 +35,7 @@ import java.util.ResourceBundle;
 import static com.ictproject.student.ulti.App.*;
 
 public class ProfileController implements Initializable {
-
-    Student currentStudent = new Student();
+    
     @FXML
     private AnchorPane holderPane;
     @FXML
