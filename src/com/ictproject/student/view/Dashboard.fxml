@@ -4,16 +4,16 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.controller.DashboardController">
    <top>
-      <HBox alignment="CENTER" style="-fx-background-color: #2A5B8A;" BorderPane.alignment="CENTER_RIGHT">
+      <HBox alignment="CENTER" style="-fx-background-color: #2e6da4;" BorderPane.alignment="CENTER_RIGHT">
          <children>
             <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0" HBox.hgrow="ALWAYS">
                <children>
@@ -38,13 +38,6 @@
          </children>
       </HBox>
    </top>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane fx:id="holderPane" HBox.hgrow="ALWAYS" />
-         </children>
-      </HBox>
-   </center>
    <left>
       <VBox prefWidth="250.0" BorderPane.alignment="CENTER">
          <children>
@@ -135,4 +128,14 @@
          </children>
       </VBox>
    </left>
+   <center>
+      <StackPane fx:id="holderPane" BorderPane.alignment="CENTER">
+         <children>
+            <HBox />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </BorderPane.margin>
+      </StackPane>
+   </center>
 </BorderPane>
