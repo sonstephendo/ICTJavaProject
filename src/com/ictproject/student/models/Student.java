@@ -7,16 +7,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Student {
+    private final IntegerProperty studentID;
     private final StringProperty firstName;
     private final StringProperty lastName;
-    private final IntegerProperty studentID;
+
     // personal info
     private final StringProperty gender;
     private final ObjectProperty<LocalDate> birthday;
     private StringProperty phone;
     private StringProperty email;
+    private StringProperty address;
+    private StringProperty studentType;
 
-    public Student(String firstName, String lastName, int studentID, String gender, String birthday, String phone, String email) {
+    public Student(String firstName, String lastName, int studentID, String gender, String birthday, String phone, String email, String address, String studentType) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.studentID = new SimpleIntegerProperty(studentID);
@@ -24,7 +27,22 @@ public class Student {
         this.birthday = new SimpleObjectProperty<>(DateUtil.parse(birthday));
         this.phone = new SimpleStringProperty(phone);
         this.email = new SimpleStringProperty(email);
+        this.address = new SimpleStringProperty(address);
+        this.studentType = new SimpleStringProperty(studentType);
     }
+
+    public String getStudentType() {
+        return studentType.get();
+    }
+
+    public StringProperty studentTypeProperty() {
+        return studentType;
+    }
+
+    public void setStudentType(String studentType) {
+        this.studentType.set(studentType);
+    }
+
     private ArrayList<Course> registeredCourses;
 
     public String getFirstName() {
