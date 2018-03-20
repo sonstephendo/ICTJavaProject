@@ -31,6 +31,18 @@ public class Student {
         this.studentType = new SimpleStringProperty(studentType);
     }
 
+    public String getAddress() {
+        return address.get();
+    }
+
+    public StringProperty addressProperty() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address.set(address);
+    }
+
     public String getStudentType() {
         return studentType.get();
     }
