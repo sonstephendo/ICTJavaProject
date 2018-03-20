@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -39,12 +40,12 @@ public class DashboardController implements Initializable{
     private JFXButton btnExit;
 
     @FXML
-    private AnchorPane holderPane;
+    private StackPane holderPane;
 
 
     private MainApp mainApp;
 
-    private AnchorPane home, add, list;
+    private Parent home, add, list;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
