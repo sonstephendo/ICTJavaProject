@@ -9,22 +9,18 @@ import com.ictproject.student.ulti.DateUtil;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
-import java.awt.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -32,10 +28,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.ictproject.student.ulti.App.*;
-
 public class ProfileController implements Initializable {
-    
+
     @FXML
     private AnchorPane holderPane;
     @FXML
@@ -88,6 +82,11 @@ public class ProfileController implements Initializable {
         return studentData;
     }
 
+    public void setStudentData(ArrayList<Student> initStudentData) {
+        studentData.clear();
+        studentData.addAll(initStudentData);
+    }
+
     /**
      * @return Main observable list of Student Data
      */
@@ -107,10 +106,6 @@ public class ProfileController implements Initializable {
 //        App initData = new App();
 //        initData.setController(this);
 //        initData.addListStudent();
-
-        studentData.add(student1);
-        studentData.add(student2);
-
 
         filter.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.equals(IDFilter)) {

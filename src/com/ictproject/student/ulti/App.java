@@ -78,5 +78,14 @@ public class App {
 
     public static Student student1 = new StudentYearly("Son", "Do Hong", 20143798, "Male", "28/10/1996", "0966540957", "sonstephendo@gmail.com",  "Ha Noi","Third");
     public static Student student2 = new StudentCredit("Emy", "Yo", 20143799, "Female", "27/10/1996", "0966854737", "loveinarmy@gmail.com", "Ha Noi", 120);
+    public static Student student3 = new Student("Son", "Do", 20455434, "Male", "23/05/1997","", "","","");
+    public static Student student4 = new Student("Son4", "Do2", 11111111, "Male", "23/05/2000","", "","","");
 
+    public void addListStudent() {
+//        controller.getStudentData().add(student1);
+//        controller.getStudentData().add(student2);
+//        controller.getStudentData().add(student3);
+//        controller.getStudentData().add(student4);
+
+    }
 }

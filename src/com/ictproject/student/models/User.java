@@ -6,18 +6,21 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class User {
-    private final IntegerProperty snum;
-    private final StringProperty name;
-    private final StringProperty major;
-    private final StringProperty level;
-    private final IntegerProperty age;
+    private final IntegerProperty snum = new SimpleIntegerProperty();
+    private final StringProperty name = new SimpleStringProperty();
+    private final StringProperty major = new SimpleStringProperty();
+    private final StringProperty level = new SimpleStringProperty();
+    private final IntegerProperty age = new SimpleIntegerProperty();
 
-    public User(int snum, String name, String major, String level, int age) {
-        this.snum = new SimpleIntegerProperty(snum);
-        this.name = new SimpleStringProperty(name);
-        this.major = new SimpleStringProperty(major);
-        this.level = new SimpleStringProperty(level);
-        this.age = new SimpleIntegerProperty(age);
+    public User() {
+    }
+
+    public User(Integer snum, String name, String major, String level, Integer age) {
+        this.snum.set(snum);
+        this.name.set(name);
+        this.major.set(major);
+        this.level.set(level);
+        this.age.set(age);
     }
 
     public int getSnum() {
@@ -28,12 +31,20 @@ public class User {
         return snum;
     }
 
+    public void setSnum(int snum) {
+        this.snum.set(snum);
+    }
+
     public String getName() {
         return name.get();
     }
 
     public StringProperty nameProperty() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     public String getMajor() {
@@ -44,6 +55,10 @@ public class User {
         return major;
     }
 
+    public void setMajor(String major) {
+        this.major.set(major);
+    }
+
     public String getLevel() {
         return level.get();
     }
@@ -52,28 +67,16 @@ public class User {
         return level;
     }
 
+    public void setLevel(String level) {
+        this.level.set(level);
+    }
+
     public int getAge() {
         return age.get();
     }
 
     public IntegerProperty ageProperty() {
         return age;
-    }
-
-    public void setSnum(int snum) {
-        this.snum.set(snum);
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
-    public void setMajor(String major) {
-        this.major.set(major);
-    }
-
-    public void setLevel(String level) {
-        this.level.set(level);
     }
 
     public void setAge(int age) {

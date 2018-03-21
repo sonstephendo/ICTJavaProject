@@ -7,28 +7,33 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Student {
-    private final IntegerProperty studentID;
-    private final StringProperty firstName;
-    private final StringProperty lastName;
+    private final IntegerProperty studentID = new SimpleIntegerProperty(0);
+    private final StringProperty firstName = new SimpleStringProperty("");
+    private final StringProperty lastName = new SimpleStringProperty("");
 
     // personal info
-    private final StringProperty gender;
-    private final ObjectProperty<LocalDate> birthday;
-    private StringProperty phone;
-    private StringProperty email;
-    private StringProperty address;
-    private StringProperty studentType;
+    private StringProperty gender = new SimpleStringProperty("");
+    private final ObjectProperty<LocalDate> birthday = new SimpleObjectProperty<>(DateUtil.parse("00/00/0000"));
+    private final StringProperty phone = new SimpleStringProperty("");
+    private final StringProperty email = new SimpleStringProperty("");
+    private final StringProperty address = new SimpleStringProperty("");
+    private final StringProperty studentType = new SimpleStringProperty("");
+
+    private ArrayList<Course> registeredCourses;
+
+    public Student() {
+    }
 
     public Student(String firstName, String lastName, int studentID, String gender, String birthday, String phone, String email, String address, String studentType) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
-        this.studentID = new SimpleIntegerProperty(studentID);
-        this.gender = new SimpleStringProperty(gender);
-        this.birthday = new SimpleObjectProperty<>(DateUtil.parse(birthday));
-        this.phone = new SimpleStringProperty(phone);
-        this.email = new SimpleStringProperty(email);
-        this.address = new SimpleStringProperty(address);
-        this.studentType = new SimpleStringProperty(studentType);
+        this.firstName.set(firstName);
+        this.lastName.set(lastName);
+        this.studentID.set(studentID);
+        this.gender.set(gender);
+        this.birthday.set(DateUtil.parse(birthday));
+        this.phone.set(phone);
+        this.email.set(email);
+        this.address.set(address);
+        this.studentType.set(studentType);
     }
 
     public String getAddress() {
@@ -55,7 +60,7 @@ public class Student {
         this.studentType.set(studentType);
     }
 
-    private ArrayList<Course> registeredCourses;
+
 
     public String getFirstName() {
         return firstName.get();

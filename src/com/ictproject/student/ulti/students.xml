@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_161" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="com.ictproject.student.models.StudentYearly">
+    <void property="address">
+     <string>Ha Noi</string>
+    </void>
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>1996-10-28</string>
+     </object>
+    </void>
+    <void property="email">
+     <string>sonstephendo@gmail.com</string>
+    </void>
+    <void property="firstName">
+     <string>Son</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Do Hong</string>
+    </void>
+    <void property="phone">
+     <string>0966540957</string>
+    </void>
+    <void property="studentID">
+     <int>20143798</int>
+    </void>
+    <void property="studentType">
+     <string>Yearly</string>
+    </void>
+    <void property="year">
+     <string>Third</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.ictproject.student.models.StudentCredit">
+    <void property="address">
+     <string>Ha Noi</string>
+    </void>
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>1996-10-27</string>
+     </object>
+    </void>
+    <void property="email">
+     <string>loveinarmy@gmail.com</string>
+    </void>
+    <void property="firstName">
+     <string>Emy</string>
+    </void>
+    <void property="gender">
+     <string>Female</string>
+    </void>
+    <void property="lastName">
+     <string>Yo</string>
+    </void>
+    <void property="phone">
+     <string>0966854737</string>
+    </void>
+    <void property="studentID">
+     <int>20143799</int>
+    </void>
+    <void property="studentType">
+     <string>Credit</string>
+    </void>
+    <void property="totalCredits">
+     <int>120</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.ictproject.student.models.Student">
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>1997-05-23</string>
+     </object>
+    </void>
+    <void property="firstName">
+     <string>Son</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Do</string>
+    </void>
+    <void property="studentID">
+     <int>20455434</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.ictproject.student.models.Student">
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2000-05-23</string>
+     </object>
+    </void>
+    <void property="firstName">
+     <string>Son4</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Do2</string>
+    </void>
+    <void property="studentID">
+     <int>11111111</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

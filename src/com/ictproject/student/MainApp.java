@@ -1,20 +1,22 @@
 package com.ictproject.student;
 
-import com.ictproject.student.controller.AdminManagerController;
-import com.ictproject.student.controller.ControllerConstants;
-import com.ictproject.student.controller.DashboardController;
-import com.ictproject.student.controller.LoginController;
+import com.ictproject.student.controller.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import java.beans.XMLEncoder;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainApp extends Application {
@@ -25,7 +27,6 @@ public class MainApp extends Application {
     private Stage primaryStage;
 
     private AnchorPane rootLayout;
-
 
     @Override
     public void start(Stage primaryStage) {
@@ -94,8 +95,10 @@ public class MainApp extends Application {
             AdminManagerController controller = loader.getController();
             controller.setMainApp(this);
 //            controller.setManagerStage(primaryStage);
-            // do something
-            primaryStage.setOnCloseRequest(e -> Platform.exit());
+
+            // Create file and save data
+            primaryStage.setOnCloseRequest(event -> Platform.exit());
+            
             primaryStage.show();
 
         } catch (IOException e) {
@@ -103,6 +106,8 @@ public class MainApp extends Application {
         }
 
     }
+
+
     public void showDashboard() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -113,11 +118,12 @@ public class MainApp extends Application {
             primaryStage.setScene(scene);
 
             // Set manager controller
-            DashboardController controller = loader.getController();
-            controller.setMainApp(this);
+
+            DashboardController dashboardController = loader.getController();
+            dashboardController.setMainApp(this);
 //            controller.setManagerStage(primaryStage);
             // do something
-            primaryStage.setOnCloseRequest(e -> Platform.exit());
+            primaryStage.setOnCloseRequest(dashboardController::onClose);
             primaryStage.show();
 
         } catch (IOException e) {
