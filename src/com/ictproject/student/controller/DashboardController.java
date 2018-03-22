@@ -3,6 +3,7 @@ package com.ictproject.student.controller;
 import com.ictproject.student.MainApp;
 import com.ictproject.student.models.Student;
 import com.ictproject.student.models.StudentCredit;
+import com.ictproject.student.models.StudentList;
 import com.ictproject.student.models.StudentYearly;
 import com.ictproject.student.ulti.App;
 import com.jfoenix.controls.JFXButton;
@@ -45,14 +46,22 @@ public class DashboardController implements Initializable {
     private MainApp mainApp;
     private Parent home, add, list;
 
-    private ProfileController profileController;
+    /**
+     * Student List data of program
+     */
+    private StudentList studentList = new StudentList();
+
+    public StudentList getStudentList() {
+        return studentList;
+    }
+
     private final String studentDataFile = "src/com/ictproject/student/ulti/students.xml";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        openMenus();
         createPages();
-        profileController.setStudentData(readStudentData());
+        studentList.setStudentData(readStudentData());
 //        profileController.getStudentData().add(App.student1);
 //        profileController.getStudentData().add(App.student2);
 //        profileController.getStudentData().add(App.student3);
@@ -113,8 +122,9 @@ public class DashboardController implements Initializable {
             FXMLLoader loader1 = new FXMLLoader();
             loader1.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.PROFILE_VIEW));
             list = loader1.load();
-            profileController = loader1.getController();
-//
+            ProfileController profileController = loader1.getController();
+            profileController.setDashboardController(this);
+
 //            FXMLLoader loader2 = new FXMLLoader();
 //            loader2.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.REGISTER_VIEW));
 //            add = loader2.load();
@@ -165,7 +175,7 @@ public class DashboardController implements Initializable {
             XMLEncoder encoder = new XMLEncoder(out);
 //            encoder.setExceptionListener(e -> System.out.println("Exception! :"+e.toString()));
 
-            for (Student student : profileController.getStudentData()) {
+            for (Student student : studentList.getStudentData()) {
                 if (student instanceof StudentYearly) {
                     studentYearlyArrayList.add((StudentYearly) student);
                 } else if (student instanceof StudentCredit) {
@@ -179,7 +189,7 @@ public class DashboardController implements Initializable {
                     return new Expression(localDate, LocalDate.class, "parse", new Object[]{localDate.toString()});
                 }
             });
-            encoder.writeObject(profileController.getStudentData());
+            encoder.writeObject(studentList.getStudentData());
             encoder.close();
         } catch (Exception e) {
             if (out != null) {

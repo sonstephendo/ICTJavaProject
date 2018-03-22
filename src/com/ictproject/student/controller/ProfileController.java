@@ -1,5 +1,6 @@
 package com.ictproject.student.controller;
 
+import com.ictproject.student.MainApp;
 import com.ictproject.student.models.Student;
 import com.ictproject.student.models.StudentCredit;
 import com.ictproject.student.models.StudentYearly;
@@ -69,22 +70,19 @@ public class ProfileController implements Initializable {
     @FXML
     private VBox detailsBox;
     private ResultSet rs;
+
+    private DashboardController dashboardController;
+
+    public void setDashboardController(DashboardController dashboardController) {
+        this.dashboardController = dashboardController;
+    }
+
     /**
      * The data as observable list of student data from databases
      */
-    private ArrayList<Student> studentData = new ArrayList<>();
     private ObservableList<Student> searchResult = FXCollections.observableArrayList();
 
     public ProfileController() {
-    }
-
-    public ArrayList<Student> getStudentData() {
-        return studentData;
-    }
-
-    public void setStudentData(ArrayList<Student> initStudentData) {
-        studentData.clear();
-        studentData.addAll(initStudentData);
     }
 
     /**
@@ -149,14 +147,13 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void searchHandle(ActionEvent event) {
-        System.out.println(studentData.size());
         students.setItems(searchResult);
         searchResult.clear();
         String searchText = searchField.getText();
         if (searchText.isEmpty()) {
-            searchResult.setAll(studentData);
+            searchResult.setAll(dashboardController.getStudentList().getStudentData());
         } else {
-            for (Student student : studentData) {
+            for (Student student : dashboardController.getStudentList().getStudentData()) {
                 if (filter.getSelectedToggle().equals(IDFilter)) {
                     if (student.getStudentID() == Integer.parseInt(searchText)) {
                         searchResult.add(student);
