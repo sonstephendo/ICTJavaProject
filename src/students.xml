@@ -2,7 +2,7 @@
 <java version="1.8.0_161" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="com.ictproject.student.models.StudentYearly">
+   <object class="com.ictproject.student.models.mainmodels.StudentYearly">
     <void property="address">
      <string>Ha Noi</string>
     </void>
@@ -38,80 +38,71 @@
    </object>
   </void>
   <void method="add">
-   <object class="com.ictproject.student.models.StudentCredit">
+   <object class="com.ictproject.student.models.mainmodels.StudentYearly">
+    <void property="address">
+     <string>Thai Nguyen</string>
+    </void>
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>1997-09-18</string>
+     </object>
+    </void>
+    <void property="email">
+     <string>ducphamvan76@gmail.com</string>
+    </void>
+    <void property="firstName">
+     <string>Duc</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Pham Van</string>
+    </void>
+    <void property="phone">
+     <string>0988767876</string>
+    </void>
+    <void property="studentID">
+     <int>20156789</int>
+    </void>
+    <void property="studentType">
+     <string>Yearly</string>
+    </void>
+    <void property="year">
+     <string>First</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.ictproject.student.models.mainmodels.StudentCredit">
     <void property="address">
      <string>Ha Noi</string>
     </void>
     <void property="birthday">
      <object class="java.time.LocalDate" method="parse">
-      <string>1996-10-27</string>
+      <string>1997-10-27</string>
      </object>
     </void>
     <void property="email">
-     <string>loveinarmy@gmail.com</string>
+     <string>buianh4444@gmail.com</string>
     </void>
     <void property="firstName">
-     <string>Emy</string>
+     <string>Anh</string>
     </void>
     <void property="gender">
      <string>Female</string>
     </void>
     <void property="lastName">
-     <string>Yo</string>
+     <string>Bui Thi</string>
     </void>
     <void property="phone">
-     <string>0966854737</string>
+     <string>0985675438</string>
     </void>
     <void property="studentID">
-     <int>20143799</int>
+     <int>20168697</int>
     </void>
     <void property="studentType">
      <string>Credit</string>
-    </void>
-    <void property="totalCredits">
-     <int>120</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.ictproject.student.models.Student">
-    <void property="birthday">
-     <object class="java.time.LocalDate" method="parse">
-      <string>1997-05-23</string>
-     </object>
-    </void>
-    <void property="firstName">
-     <string>Son</string>
-    </void>
-    <void property="gender">
-     <string>Male</string>
-    </void>
-    <void property="lastName">
-     <string>Do</string>
-    </void>
-    <void property="studentID">
-     <int>20455434</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.ictproject.student.models.Student">
-    <void property="birthday">
-     <object class="java.time.LocalDate" method="parse">
-      <string>2000-05-23</string>
-     </object>
-    </void>
-    <void property="firstName">
-     <string>Son4</string>
-    </void>
-    <void property="gender">
-     <string>Male</string>
-    </void>
-    <void property="lastName">
-     <string>Do2</string>
-    </void>
-    <void property="studentID">
-     <int>11111111</int>
     </void>
    </object>
   </void>

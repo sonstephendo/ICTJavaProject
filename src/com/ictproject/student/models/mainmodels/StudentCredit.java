@@ -1,4 +1,4 @@
-package com.ictproject.student.models;
+package com.ictproject.student.models.mainmodels;
 
 import javafx.beans.property.*;
 

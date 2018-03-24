@@ -1,141 +1,40 @@
 package com.ictproject.student;
 
-import com.ictproject.student.controller.*;
-import com.ictproject.student.models.StudentList;
+import com.ictproject.student.ui.mainui.admin.ViewConstants;
+import com.ictproject.student.ui.mainui.admin.AdminDashboardController;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-import java.beans.XMLEncoder;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainApp extends Application {
 
-    /*
-        Login Stage
-         */
     private Stage primaryStage;
 
-    private AnchorPane rootLayout;
-
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle(ControllerConstants.APP_TITLE);
-
-        primaryStage.getIcons().add(new Image("img/icons8_Graduation_Cap_32px.png"));
-
-//        connectDatabaseAndGetStudentDetail();
-//        connectDB();
-        showLoginLayout();
-        initLoginLayout();
+        showLoginStage();
     }
 
+    public void showLoginStage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(ViewConstants.LOGIN_VIEW));
+        Scene scene = new Scene(root);
 
-
-    // TODO: 09/03/2018 adding something
-    private void initLoginLayout() {
-
+        primaryStage.setTitle(ViewConstants.APP_NAME);
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("resources/img/icons8_Graduation_Cap_32px.png"));
+        primaryStage.show();
+        createReference();
     }
 
-    /**
-     * Load and show Login Screen
-     */
-    private void showLoginLayout() {
-        try {
-            // Load the fxml file and create a new stage for Login
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.LOGIN_VIEW));
-            AnchorPane loginLayout = loader.load();
-
-            // Create the dialog stage
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Login");
-            loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.initOwner(primaryStage);
-
-            Scene scene = new Scene(loginLayout);
-            loginStage.setScene(scene);
-
-            // Give the controller access to the main app
-            LoginController controller = loader.getController();
-            controller.setMainApp(this);
-            controller.setLoginStage(loginStage);
-
-            loginStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Show the Admin management root layout
-     */
-    public void showAdminManagerRoot() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("view/AdminManager.fxml"));
-            rootLayout = loader.load();
-
-            Scene scene = new Scene(rootLayout);
-            primaryStage.setScene(scene);
-
-            // Set manager controller
-            AdminManagerController controller = loader.getController();
-            controller.setMainApp(this);
-//            controller.setManagerStage(primaryStage);
-
-            // Create file and save data
-            primaryStage.setOnCloseRequest(event -> Platform.exit());
-            
-            primaryStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    public void showDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(ControllerConstants.VIEWPATH + ControllerConstants.DASH_BOARD_VIEW));
-            Parent dashboard = loader.load();
-
-            Scene scene = new Scene(dashboard);
-            primaryStage.setScene(scene);
-
-            // Set manager controller
-
-            DashboardController dashboardController = loader.getController();
-            dashboardController.setMainApp(this);
-//            controller.setManagerStage(primaryStage);
-            // do something
-            primaryStage.setOnCloseRequest(dashboardController::onClose);
-            primaryStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    public Stage getPrimaryStage() {
-        return primaryStage;
+    private void createReference() {
+        AdminDashboardController.setMainApp(this);
     }
 
     public static void main(String[] args) {

@@ -1,13 +1,16 @@
 package com.ictproject.student.ulti;
 
-import com.ictproject.student.controller.ProfileController;
-import com.ictproject.student.models.*;
+import com.ictproject.student.models.mainmodels.Course;
+import com.ictproject.student.models.mainmodels.Student;
+import com.ictproject.student.models.mainmodels.StudentCredit;
+import com.ictproject.student.models.mainmodels.StudentYearly;
+import com.ictproject.student.ui.mainui.admin.Students;
 
 public class App {
 
-    ProfileController controller = new ProfileController();
+    Students controller = new Students();
 
-    public void setController(ProfileController controller) {
+    public void setController(Students controller) {
         this.controller = controller;
     }
 

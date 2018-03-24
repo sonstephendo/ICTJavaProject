@@ -1,4 +1,4 @@
-package com.ictproject.student.models;
+package com.ictproject.student.models.mainmodels;
 
 import com.ictproject.student.ulti.DateUtil;
 import javafx.beans.property.*;
