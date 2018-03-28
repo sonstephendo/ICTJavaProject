@@ -2,15 +2,10 @@ package com.ictproject.student.ui.mainui.admin;
 
 import com.ictproject.student.MainApp;
 import com.ictproject.student.alert.AlertMaker;
-import com.ictproject.student.models.mainmodels.Student;
-import com.ictproject.student.models.mainmodels.StudentCredit;
-import com.ictproject.student.models.mainmodels.StudentList;
-import com.ictproject.student.models.mainmodels.StudentYearly;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,17 +13,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
-import java.beans.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable {
@@ -132,13 +120,13 @@ public class AdminDashboardController implements Initializable {
     public void logOff(ActionEvent event) throws IOException {
         Stage currentStage = (Stage) btnLogOut.getScene().getWindow();
         currentStage.close();
-        Students.onClose();
+        StudentsController.onClose();
         mainApp.showLoginStage();
     }
 
     @FXML
     private void exit(ActionEvent event) {
-        Students.onClose();
+        StudentsController.onClose();
         Platform.exit();
     }
 }

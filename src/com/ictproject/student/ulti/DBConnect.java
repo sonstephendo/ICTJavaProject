@@ -1,6 +1,6 @@
 package com.ictproject.student.ulti;
 
-import com.ictproject.student.ui.mainui.admin.Students;
+import com.ictproject.student.ui.mainui.admin.StudentsController;
 
 import java.sql.*;
 
@@ -17,10 +17,10 @@ public class DBConnect extends Configs{
         this.rs = rs;
     }
 
-    private Students students;
+    private StudentsController studentsController;
 
-    public void setStudents(Students students) {
-        this.students = students;
+    public void setStudentsController(StudentsController studentsController) {
+        this.studentsController = studentsController;
     }
 
     public Connection getConnect() {
@@ -71,7 +71,7 @@ public class DBConnect extends Configs{
             String Level = rs.getString("Level");
             int Age = Integer.parseInt(rs.getString("Age"));
 
-//            students.getStudentData().add(new User(Snum, Name, Major, Level, Age));
+//            studentsController.getStudentData().add(new User(Snum, Name, Major, Level, Age));
             System.out.println(Snum +"\t" + Name +"\t" + Major +"\t" + Level +"\t" + Age);
         }
     }

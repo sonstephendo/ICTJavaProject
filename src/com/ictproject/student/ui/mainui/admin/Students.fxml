@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="680.0" prefWidth="1070.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.ui.mainui.admin.Students">
+<StackPane prefHeight="680.0" prefWidth="1070.0" style="-fx-background-color: #e1e1e1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ictproject.student.ui.mainui.admin.StudentsController">
    <children>
       <VBox>
          <children>
@@ -59,7 +59,7 @@
                               </HBox>
                            </center>
                            <right>
-                              <JFXButton fx:id="searchButton" alignment="CENTER" onAction="#searchHandle" prefHeight="40.0" prefWidth="110.0" stylesheets="@../../../style/app.css" text="Search" textFill="WHITE" BorderPane.alignment="CENTER">
+                              <JFXButton fx:id="searchButton" alignment="CENTER" onAction="#searchHandle" prefWidth="110.0" stylesheets="@../../../style/app.css" text="Search" textFill="WHITE" BorderPane.alignment="CENTER">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -67,7 +67,7 @@
                                     <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="18" wrappingWidth="22.5" />
                                  </graphic>
                                  <padding>
-                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
                                  </padding>
                               </JFXButton>
                            </right>
@@ -91,7 +91,7 @@
                                     <TableColumn fx:id="studentID" editable="false" prefWidth="-1.0" text="Student ID" />
                                     <TableColumn fx:id="firstName" editable="false" minWidth="0.0" prefWidth="-1.0" text="First Name" />
                                     <TableColumn fx:id="lastName" editable="false" prefWidth="-1.0" text="Last Name" />
-                                    <TableColumn fx:id="studentType" editable="false" prefWidth="-1.0" text="Student Type" />
+                                    <TableColumn fx:id="educationSystem" editable="false" prefWidth="-1.0" text="Edu System" />
                                  </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

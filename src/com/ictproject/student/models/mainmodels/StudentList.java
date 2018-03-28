@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class StudentList {
 
+    public static StudentList STUDENTLIST = new StudentList();
     /**
      * Student data List, contain all the Student of the school
      */
@@ -37,6 +38,16 @@ public class StudentList {
                 break;
             }
         }
+    }
+
+    public Student getStudent(String studentID) {
+        int id = Integer.parseInt(studentID);
+        for (Student student : studentData) {
+            if (student.getStudentID() == id) {
+                return student;
+            }
+        }
+        return null;
     }
     // TODO: 22/03/2018  // add more method for that class
 

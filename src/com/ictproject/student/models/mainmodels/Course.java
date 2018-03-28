@@ -1,5 +1,6 @@
 package com.ictproject.student.models.mainmodels;
 
+import com.ictproject.student.ulti.DateUtil;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -7,88 +8,101 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Course {
-    // TODO: 17/03/2018  add some class like (Faculty = Khoa , Teacher(personalInfo => can separate
-    // TODO: 17/03/2018  extend course to credit course(IntegerProperty credit
+import java.util.ArrayList;
 
-    private final IntegerProperty courseID;
-    private final StringProperty courseName;
-    private final StringProperty courseCode;
-    private IntegerProperty availableSeats;
-    private IntegerProperty seatsTaken;
-    private ObservableList<Student> registeredStudents = FXCollections.observableArrayList();
+/**
+ * Course class for Yearly Student
+ */
+public class Course {
+    // TODO: 17/03/2018  extend course to credit course(IntegerProperty credit
+    // TODO: 27/03/2018 remove property of this field is no need to show inside tableView
+    // TODO: 27/03/2018 seat property modify
+
+    private final IntegerProperty courseID = new SimpleIntegerProperty();
+    private final StringProperty courseName = new SimpleStringProperty();
+    private final StringProperty courseCode = new SimpleStringProperty();
+
+    private int availableSeats;
+    private int seatsTaken;
+    private ArrayList<Student> registeredStudents = new ArrayList<>();
+
+    public Course() {
+    }
 
     public Course(int courseID, String courseName, String courseCode) {
-        this.courseID = new SimpleIntegerProperty(courseID);
-        this.courseName = new SimpleStringProperty(courseName);
-        this.courseCode = new SimpleStringProperty(courseCode);
+        this.courseID.set(courseID);
+        this.courseName.set(courseName);
+        this.courseCode.set(courseCode);
     }
+
+
+    public boolean addRegister(Student student) {
+        return registeredStudents.add(student);
+    }
+
 
     public int getCourseID() {
         return courseID.get();
-    }
-
-    public IntegerProperty courseIDProperty() {
-        return courseID;
     }
 
     public void setCourseID(int courseID) {
         this.courseID.set(courseID);
     }
 
-    public String getCourseName() {
-        return courseName.get();
+    public IntegerProperty courseIDProperty() {
+        return courseID;
     }
 
-    public StringProperty courseNameProperty() {
-        return courseName;
+    public String getCourseName() {
+        return courseName.get();
     }
 
     public void setCourseName(String courseName) {
         this.courseName.set(courseName);
     }
 
-    public String getCourseCode() {
-        return courseCode.get();
+    public StringProperty courseNameProperty() {
+        return courseName;
     }
 
-    public StringProperty courseCodeProperty() {
-        return courseCode;
+    public String getCourseCode() {
+        return courseCode.get();
     }
 
     public void setCourseCode(String courseCode) {
         this.courseCode.set(courseCode);
     }
 
-    public int getAvailableSeats() {
-        return availableSeats.get();
+    public StringProperty courseCodeProperty() {
+        return courseCode;
     }
 
-    public IntegerProperty availableSeatsProperty() {
+    public int getAvailableSeats() {
         return availableSeats;
     }
 
     public void setAvailableSeats(int availableSeats) {
-        this.availableSeats.set(availableSeats);
+        this.availableSeats = availableSeats;
     }
 
     public int getSeatsTaken() {
-        return seatsTaken.get();
-    }
-
-    public IntegerProperty seatsTakenProperty() {
         return seatsTaken;
     }
 
     public void setSeatsTaken(int seatsTaken) {
-        this.seatsTaken.set(seatsTaken);
+        this.seatsTaken = seatsTaken;
     }
 
-    public ObservableList<Student> getRegisteredStudents() {
+    public ArrayList<Student> getRegisteredStudents() {
         return registeredStudents;
     }
 
-    public void setRegisteredStudents(ObservableList<Student> registeredStudents) {
+    public void setRegisteredStudents(ArrayList<Student> registeredStudents) {
         this.registeredStudents = registeredStudents;
+    }
+
+    @Override
+    public String toString() {
+        return this.getCourseCode();
     }
 }

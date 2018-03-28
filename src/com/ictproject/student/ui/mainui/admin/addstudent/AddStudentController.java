@@ -1,34 +1,31 @@
 package com.ictproject.student.ui.mainui.admin.addstudent;
 
 import com.ictproject.student.alert.AlertMaker;
+import com.ictproject.student.models.mainmodels.FixedStudent.StudyYear;
 import com.ictproject.student.models.mainmodels.Student;
-import com.ictproject.student.models.mainmodels.StudentCredit;
-import com.ictproject.student.models.mainmodels.StudentYearly;
-import com.ictproject.student.ui.mainui.admin.Students;
+import com.ictproject.student.models.mainmodels.CreditStudent;
+import com.ictproject.student.models.mainmodels.FixedStudent;
 import com.ictproject.student.ulti.DateUtil;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import static com.ictproject.student.models.mainmodels.StudentList.STUDENTLIST;
 
 public class AddStudentController implements Initializable {
     private File file;
@@ -76,19 +73,51 @@ public class AddStudentController implements Initializable {
     private JFXTextField address;
 
     @FXML
+    private ToggleGroup stypeRadio;
+
+    @FXML
     private RadioButton credit;
+
+    @FXML
+    private RadioButton yearly;
+
+    @FXML
+    private JFXComboBox<StudyYear> fixedComboBox;
+
+    @FXML
+    private JFXTextField creditNumField;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        initComboBox();
+
     }
 
-    // TODO: 24/03/2018 need add validation (NumberFormatException for id)
+    private void initComboBox() {
+        fixedComboBox.getItems().add(StudyYear.FRESHMAN);
+        fixedComboBox.getItems().add(StudyYear.SOPHOMORE);
+        fixedComboBox.getItems().add(StudyYear.JUNIOR);
+        fixedComboBox.getItems().add(StudyYear.SENIOR);
+        stypeRadio.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.equals(yearly)) {
+                creditNumField.setVisible(false);
+                fixedComboBox.setVisible(true);
+            }
+            if (newValue.equals(credit)) {
+                creditNumField.setVisible(true);
+                fixedComboBox.setVisible(false);
+            }
+        });
+
+    }
+
+    // TODO: 24/03/2018 need add validation (NumberFormatException for id) + new button for clearform
+
     @FXML
-    void submitDetails(ActionEvent event) {
+    void submitDetails() {
         String studentIDString = studentID.getText();
         String firstNameString = firstName.getText();
         String lastNameString = lastName.getText();
@@ -99,11 +128,11 @@ public class AddStudentController implements Initializable {
         String emailString = email.getText();
         String addressString = address.getText();
         if (credit.isSelected()) {
-            Student newStudent = new StudentCredit(firstNameString, lastNameString, Integer.parseInt(studentIDString), genderString, DateUtil.format(birthdayDate), phoneString, emailString, addressString, 0);
-            Students.getStudentList().addStudent(newStudent);
+            Student newStudent = new CreditStudent(Integer.parseInt(studentIDString), firstNameString, lastNameString, genderString, DateUtil.format(birthdayDate), phoneString, emailString, addressString, 0);
+            STUDENTLIST.addStudent(newStudent);
         } else {
-            Student newStudent = new StudentYearly(firstNameString, lastNameString, Integer.parseInt(studentIDString), genderString, DateUtil.format(birthdayDate), phoneString, emailString, addressString, "First");
-            Students.getStudentList().addStudent(newStudent);
+            Student newStudent = new FixedStudent(Integer.parseInt(studentIDString), firstNameString, lastNameString, genderString, DateUtil.format(birthdayDate), phoneString, emailString, addressString, fixedComboBox.getValue());
+            STUDENTLIST.addStudent(newStudent);
         }
         AlertMaker.showNotification("Success", "Student info inserted successfully ", AlertMaker.image_movie_frame);
     }
@@ -134,6 +163,6 @@ public class AddStudentController implements Initializable {
 
     @FXML
     private void goBack(ActionEvent event) {
-            ((Stage) studentID.getScene().getWindow()).close();
+            ((Stage) btnBack.getScene().getWindow()).close();
     }
 }

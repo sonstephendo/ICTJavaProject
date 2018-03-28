@@ -2,9 +2,8 @@ package com.ictproject.student.ui.mainui.admin;
 
 import com.ictproject.student.alert.AlertMaker;
 import com.ictproject.student.models.mainmodels.Student;
-import com.ictproject.student.models.mainmodels.StudentCredit;
-import com.ictproject.student.models.mainmodels.StudentList;
-import com.ictproject.student.models.mainmodels.StudentYearly;
+import com.ictproject.student.models.mainmodels.CreditStudent;
+import com.ictproject.student.models.mainmodels.FixedStudent;
 import com.ictproject.student.ulti.DBConnect;
 import com.ictproject.student.ulti.DateUtil;
 import com.jfoenix.controls.JFXButton;
@@ -22,12 +21,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 
 import java.beans.*;
 import java.io.FileInputStream;
@@ -42,12 +39,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class Students implements Initializable {
+import static com.ictproject.student.models.mainmodels.StudentList.*;
+
+public class StudentsController implements Initializable {
     private static final String studentDataFile = "src/students.xml";
     /**
      * Student List data of program
      */
-    private static StudentList studentList = new StudentList();
+//    public static StudentList STUDENTLIST = new StudentList();
     /**
      * The data as observable list of student data from databases
      */
@@ -61,7 +60,7 @@ public class Students implements Initializable {
     @FXML
     private TableColumn<Student, String> lastName;
     @FXML
-    private TableColumn<Student, String> studentType;
+    private TableColumn<Student, String> educationSystem;
     @FXML
     private JFXRadioButton IDFilter;
     @FXML
@@ -98,9 +97,9 @@ public class Students implements Initializable {
     @FXML
     private JFXButton btnRefresh;
 
-    public static StudentList getStudentList() {
-        return studentList;
-    }
+//    public static StudentList getStudentList() {
+//        return STUDENTLIST;
+//    }
 
     public static void onClose() {
         FileOutputStream out = null;
@@ -115,7 +114,7 @@ public class Students implements Initializable {
                     return new Expression(localDate, LocalDate.class, "parse", new Object[]{localDate.toString()});
                 }
             });
-            encoder.writeObject(studentList.getStudentData());
+            encoder.writeObject(STUDENTLIST.getStudentData());
             encoder.close();
             System.out.println("Saved students list");
         } catch (Exception e) {
@@ -144,7 +143,7 @@ public class Students implements Initializable {
             }
         });
         // loading data
-        studentList.setStudentData(readStudentData());
+        STUDENTLIST.setStudentData(readStudentData());
     }
 
     private void initCols() {
@@ -152,7 +151,7 @@ public class Students implements Initializable {
         studentID.setCellValueFactory(cellData -> cellData.getValue().studentIDProperty());
         firstName.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastName.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        studentType.setCellValueFactory(cellData -> cellData.getValue().studentTypeProperty());
+        educationSystem.setCellValueFactory(cellData -> cellData.getValue().educationSystemProperty());
     }
 
     private ArrayList<Student> readStudentData() {
@@ -182,7 +181,7 @@ public class Students implements Initializable {
     private void searchHandle2(ActionEvent event) {
         DBConnect dbConnect = new DBConnect();
         Connection connection = dbConnect.getConnect();
-        dbConnect.setStudents(this);
+        dbConnect.setStudentsController(this);
 
         students.getItems().clear();
 
@@ -212,9 +211,9 @@ public class Students implements Initializable {
         searchResult.clear();
         String searchText = searchField.getText();
         if (searchText.isEmpty()) {
-            searchResult.setAll(studentList.getStudentData());
+            searchResult.setAll(STUDENTLIST.getStudentData());
         } else {
-            for (Student student : studentList.getStudentData()) {
+            for (Student student : STUDENTLIST.getStudentData()) {
                 if (filter.getSelectedToggle().equals(IDFilter)) {
                     if (student.getStudentID() == Integer.parseInt(searchText)) {
                         searchResult.add(student);
@@ -240,12 +239,12 @@ public class Students implements Initializable {
             lblAddress.setText(student.getAddress());
             lblGender.setText(student.getGender());
             lblBirdthday.setText(DateUtil.format(student.getBirthday()));
-            if (student instanceof StudentCredit) {
-                int num = ((StudentCredit) student).getTotalCredits();
+            if (student instanceof CreditStudent) {
+                int num = ((CreditStudent) student).getTotalCredits();
                 String totalCredit = Integer.toString(num);
                 lblAddition.setText("Total Credit: " + totalCredit);
-            } else if (student instanceof StudentYearly) {
-                String years = ((StudentYearly) student).getYear();
+            } else if (student instanceof FixedStudent) {
+                String years = ((FixedStudent) student).getYear();
                 lblAddition.setText("Year: " + years);
             }
         } else {
@@ -273,7 +272,7 @@ public class Students implements Initializable {
     @FXML
     void refreshTable(ActionEvent event) {
         students.getItems().clear();
-        searchResult.setAll(studentList.getStudentData());
+        searchResult.setAll(STUDENTLIST.getStudentData());
     }
 
     @FXML
@@ -281,7 +280,7 @@ public class Students implements Initializable {
         Student removeStudent = students.getSelectionModel().getSelectedItem();
         if (removeStudent != null) {
             // TODO: 24/03/2018 check valid (sinh viên có tham gia khóa học nào không) maybe
-            studentList.deleteStudent(removeStudent);
+            STUDENTLIST.deleteStudent(removeStudent);
             AlertMaker.showNotification("Successful", "Student Deleted", AlertMaker.image_movie_frame);
         } else {
             AlertMaker.showNotification("Error", "No  Student Selected", AlertMaker.image_cross);

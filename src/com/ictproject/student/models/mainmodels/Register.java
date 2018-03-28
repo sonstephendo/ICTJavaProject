@@ -1,31 +1,33 @@
 package com.ictproject.student.models.mainmodels;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.*;
 
-public class Enroll {
-    private final IntegerProperty enrollID;
-    private ObjectProperty<Student> studentEnroll;
-    private ObjectProperty<Course> courseEnroll;
+public class Register {
+    private final IntegerProperty registerID = new SimpleIntegerProperty();
+    private final ObjectProperty<Student> studentEnroll = new SimpleObjectProperty<>();
+    private final ObjectProperty<Course> courseEnroll = new SimpleObjectProperty<>();
     private DoubleProperty midtermGrade;
     private DoubleProperty finalGrade;
     private DoubleProperty score;
+    public static int numOfReg = 0;
 
-    public Enroll(IntegerProperty enrollID) {
-        this.enrollID = enrollID;
+    public Register(int registerID, Student studentEnroll, Course courseEnroll) {
+        this.registerID.set(registerID);
+        this.studentEnroll.set(studentEnroll);
+        this.courseEnroll.set(courseEnroll);
     }
 
-    public int getEnrollID() {
-        return enrollID.get();
+
+    public int getRegisterID() {
+        return registerID.get();
     }
 
-    public IntegerProperty enrollIDProperty() {
-        return enrollID;
+    public IntegerProperty registerIDProperty() {
+        return registerID;
     }
 
-    public void setEnrollID(int enrollID) {
-        this.enrollID.set(enrollID);
+    public void setRegisterID(int registerID) {
+        this.registerID.set(registerID);
     }
 
     public Student getStudentEnroll() {

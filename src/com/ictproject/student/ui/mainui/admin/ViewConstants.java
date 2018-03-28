@@ -11,6 +11,8 @@ public class ViewConstants {
     public static final String HOME_VIEW = "/com/ictproject/student/ui/mainui/admin/Home.fxml";
 
     public static final String ADD_STUDENT_VIEW = "/com/ictproject/student/ui/mainui/admin/addstudent/AddStudent.fxml";
+    public static final String ADD_REGISTER_VIEW = "/com/ictproject/student/ui/mainui/admin/registercourse/RegisterCourse.fxml";
+
 
 
 }

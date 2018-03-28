@@ -1,20 +1,36 @@
 package com.ictproject.student.models.mainmodels;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 
 /**
  * Major class is class taken by each Student. Student need to do specific required for degree
  */
 public class Major {
-    private final StringProperty titleMajor;
-    private IntegerProperty totalCredits;
-    private ObservableList<Course> majorCourse;
-    private ObservableList<Course> nonMajorCourse;
+    private final StringProperty titleMajor = new SimpleStringProperty();
+    private final IntegerProperty totalCredits = new SimpleIntegerProperty();
+    private ArrayList<CreditCourse> majorCourse;
+    private ArrayList<CreditCourse> nonMajorCourse; // TODO: 27/03/2018 do latter
 
-    public Major(StringProperty titleMajor) {
-        this.titleMajor = titleMajor;
+    public Major() {
+    }
+
+    public Major(String titleMajor, int totalCredits) {
+        this.titleMajor.set(titleMajor);
+        this.totalCredits.set(totalCredits);
+        majorCourse = new ArrayList<>();
+        nonMajorCourse = new ArrayList<>();
+    }
+
+    public boolean addMajorCourse(CreditCourse course) {
+        return majorCourse.add(course);
+    }
+
+    public boolean addnonMajorCourse(CreditCourse course) {
+        return nonMajorCourse.add(course);
     }
 
     public String getTitleMajor() {
@@ -41,19 +57,28 @@ public class Major {
         this.totalCredits.set(totalCredits);
     }
 
-    public ObservableList<Course> getMajorCourse() {
+    public ArrayList<CreditCourse> getMajorCourse() {
         return majorCourse;
     }
 
-    public void setMajorCourse(ObservableList<Course> majorCourse) {
+    public void setMajorCourse(ArrayList<CreditCourse> majorCourse) {
         this.majorCourse = majorCourse;
     }
 
-    public ObservableList<Course> getNonMajorCourse() {
+    public ArrayList<CreditCourse> getNonMajorCourse() {
         return nonMajorCourse;
     }
 
-    public void setNonMajorCourse(ObservableList<Course> nonMajorCourse) {
+    public void setNonMajorCourse(ArrayList<CreditCourse> nonMajorCourse) {
         this.nonMajorCourse = nonMajorCourse;
+    }
+
+    public Course getCourseMajorFromCode(String Code) {
+        for (CreditCourse creditCourse : majorCourse) {
+            if (creditCourse.getCourseCode().equals(Code)) {
+                return creditCourse;
+            }
+        }
+        return null;
     }
 }
