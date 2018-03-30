@@ -1,5 +1,6 @@
-package com.ictproject.student.models.mainmodels;
+package com.ictproject.student.models.mainmodels.academic_credit;
 
+import com.ictproject.student.models.mainmodels.Course;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -10,10 +11,11 @@ public class CreditCourse extends Course {
     private IntegerProperty creditNum = new SimpleIntegerProperty();
 
     public CreditCourse() {
+
     }
 
-    public CreditCourse(int courseID, String courseName, String courseCode, int creditNum) {
-        super(courseID, courseName, courseCode);
+    public CreditCourse(String courseCode,String courseName, int creditNum) {
+        super(courseCode, courseName);
         this.creditNum.set(creditNum);
     }
 

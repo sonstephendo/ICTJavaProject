@@ -2,16 +2,20 @@ package com.ictproject.student.models.mainmodels;
 
 import javafx.beans.property.*;
 
-public class Register {
+public class Registration {
     private final IntegerProperty registerID = new SimpleIntegerProperty();
     private final ObjectProperty<Student> studentEnroll = new SimpleObjectProperty<>();
     private final ObjectProperty<Course> courseEnroll = new SimpleObjectProperty<>();
-    private DoubleProperty midtermGrade;
-    private DoubleProperty finalGrade;
-    private DoubleProperty score;
-    public static int numOfReg = 0;
+    private DoubleProperty midtermGrade = new SimpleDoubleProperty();
+    private DoubleProperty finalGrade = new SimpleDoubleProperty();
+    private DoubleProperty score = new SimpleDoubleProperty();
+    public static int numOfReg = 1; // FIXME: 31/03/2018 remove and work with ID
 
-    public Register(int registerID, Student studentEnroll, Course courseEnroll) {
+    public Registration() {
+    }
+
+    public Registration(int registerID, Student studentEnroll, Course courseEnroll) {
+        numOfReg++;
         this.registerID.set(registerID);
         this.studentEnroll.set(studentEnroll);
         this.courseEnroll.set(courseEnroll);

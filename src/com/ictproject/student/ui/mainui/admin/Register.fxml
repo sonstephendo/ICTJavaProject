@@ -84,7 +84,7 @@
                                  <columns>
                                     <TableColumn fx:id="registerID" prefWidth="120.0" text="Register ID" />
                                     <TableColumn fx:id="studentID" prefWidth="120.0" text="Student ID" />
-                                    <TableColumn fx:id="courseID" minWidth="0.0" prefWidth="125.0" text="Course ID" />
+                                    <TableColumn fx:id="courseCode" minWidth="0.0" prefWidth="125.0" text="Course Code" />
                                     <TableColumn fx:id="midtermScore" editable="false" prefWidth="426.0" text="Midterm" />
                                     <TableColumn fx:id="finalScore" editable="false" prefWidth="426.0" text="Final" />
                                     <TableColumn fx:id="totalScore" editable="false" prefWidth="426.0" text="Total Score" />

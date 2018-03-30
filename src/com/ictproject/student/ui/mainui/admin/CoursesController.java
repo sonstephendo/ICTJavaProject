@@ -1,11 +1,13 @@
 package com.ictproject.student.ui.mainui.admin;
 
 import com.ictproject.student.models.mainmodels.Course;
-import com.ictproject.student.models.mainmodels.CreditCourse;
-import com.ictproject.student.models.mainmodels.Major;
-import com.ictproject.student.models.mainmodels.Student;
-import com.ictproject.student.ulti.App;
-import com.jfoenix.controls.*;
+import com.ictproject.student.models.mainmodels.academic_credit.Major;
+import com.ictproject.student.models.mainmodels.fixed_curriculum.FixedClass;
+import com.ictproject.student.models.mainmodels.operation.FixedClassOperations;
+import com.ictproject.student.models.mainmodels.operation.MajorOperations;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,11 +22,9 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.ictproject.student.ulti.App.csMajor;
-
 public class CoursesController implements Initializable{
 
-    private ObservableList<Course> testListCourse = FXCollections.observableArrayList();
+    private ObservableList<Course> courseObservableList = FXCollections.observableArrayList();
 
     @FXML
     private JFXRadioButton IDFilter;
@@ -43,9 +43,6 @@ public class CoursesController implements Initializable{
 
     @FXML
     private TableView<Course> courseTableView;
-
-    @FXML
-    private TableColumn<Course, Number> courseID;
 
     @FXML
     private TableColumn<Course, String> courseName;
@@ -93,20 +90,17 @@ public class CoursesController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCols();
+        courseTableView.setItems(courseObservableList);
 
-        testingRegister();
 
-        courseTableView.setItems(testListCourse);
-    }
-
-    private void testingRegister() {
 
     }
+
 
     private void initCols() {
-        courseID.setCellValueFactory(param -> param.getValue().courseIDProperty());
         courseName.setCellValueFactory(param -> param.getValue().courseNameProperty());
         courseCode.setCellValueFactory(param -> param.getValue().courseCodeProperty());
+
     }
 
     @FXML
@@ -132,6 +126,15 @@ public class CoursesController implements Initializable{
     @FXML
     void searchHandle(ActionEvent event) {
         courseTableView.getItems().clear();
-        testListCourse.addAll(csMajor.getMajorCourse());
+//        courseObservableList.addAll((Course) MajorOperations.getInstance().getDataList());
+        for (FixedClass aClass : FixedClassOperations.getInstance().getDataList()) {
+            courseObservableList.addAll(aClass.getCoursesCatalog().getCourseDataSet());
+        }
+
+        for (Major major : MajorOperations.getInstance().getDataList()) {
+            courseObservableList.addAll(major.getMajorCatalog().getCourseDataSet());
+        }
+
+
     }
 }

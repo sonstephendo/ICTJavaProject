@@ -1,13 +1,17 @@
-package com.ictproject.student.models.mainmodels;
+package com.ictproject.student.models.mainmodels.academic_credit;
 
-import javafx.beans.property.*;
+import com.ictproject.student.models.mainmodels.Student;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 /**
  * Student belong to  ACADEMIC CREDIT SYSTEM
  */
 public class CreditStudent extends Student {
     private final IntegerProperty takenCredits = new SimpleIntegerProperty(); // Total credits taken (totalCreditsTowardsDegree... bla bla
-    private ObjectProperty<Major> major = new SimpleObjectProperty<>();
+    private final ObjectProperty<Major> major = new SimpleObjectProperty<>();
 
     public CreditStudent() {
     }
@@ -16,6 +20,7 @@ public class CreditStudent extends Student {
         super(studentID, firstName, lastName, gender, birthday, phone, email, address, EduSystem.CREDIT);
         this.takenCredits.set(takenCredits);
     }
+
 
 
     public Major getMajor() {

@@ -2,7 +2,6 @@ package com.ictproject.student.models.mainmodels;
 
 import com.ictproject.student.ulti.DateUtil;
 import javafx.beans.property.*;
-import javafx.scene.control.SingleSelectionModel;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class Student {
     private final StringProperty address = new SimpleStringProperty("");
     private final StringProperty educationSystem = new SimpleStringProperty("");
 
-    private ArrayList<Course> registeredCourses;
 
     public Student() {
     }
@@ -35,10 +33,6 @@ public class Student {
         this.email.set(email);
         this.address.set(address);
         this.educationSystem.set(educationSystem.toString());
-    }
-
-    private boolean addCourse(Course course) {
-        return registeredCourses.add(course);
     }
 
     public String getAddress() {
@@ -157,14 +151,6 @@ public class Student {
         return email;
     }
 
-    public ArrayList<Course> getRegisteredCourses() {
-        return registeredCourses;
-    }
-
-    public void setRegisteredCourses(ArrayList<Course> registeredCourses) {
-        this.registeredCourses = registeredCourses;
-    }
-
     @Override
     public String toString() {
         return studentID.getValue().toString();
@@ -184,5 +170,20 @@ public class Student {
         public String toString() {
             return text;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+
+        Student student = (Student) o;
+
+        return getStudentID() == (student.getStudentID());
+    }
+
+    @Override
+    public int hashCode() {
+        return studentID.hashCode();
     }
 }

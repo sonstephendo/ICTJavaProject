@@ -5,7 +5,7 @@ import com.ictproject.student.ui.mainui.admin.StudentsController;
 import java.sql.*;
 
 /**
- * Helper Class, Using mysql-connector to working with mysql database
+ * Helper FixedClass, Using mysql-connector to working with mysql database
  */
 // TODO: 09/03/2018 (Loading: Done, Storing: todo
 public class DBConnect extends Configs{

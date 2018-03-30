@@ -2,6 +2,15 @@ package com.ictproject.student.ui.mainui.admin;
 
 import com.ictproject.student.MainApp;
 import com.ictproject.student.alert.AlertMaker;
+import com.ictproject.student.models.mainmodels.Registration;
+import com.ictproject.student.models.mainmodels.Student;
+import com.ictproject.student.models.mainmodels.academic_credit.Major;
+import com.ictproject.student.models.mainmodels.fixed_curriculum.FixedClass;
+import com.ictproject.student.models.mainmodels.operation.FixedClassOperations;
+import com.ictproject.student.models.mainmodels.operation.MajorOperations;
+import com.ictproject.student.models.mainmodels.operation.RegistrationOperations;
+import com.ictproject.student.models.mainmodels.operation.StudentOperations;
+import com.ictproject.student.ulti.DataHelper;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
@@ -52,8 +61,14 @@ public class AdminDashboardController implements Initializable {
         AdminDashboardController.mainApp = mainApp;
     }
 
+    private static final String registrationDataFile = "src/registration.xml";
+    private static final String studentDataFile = "src/students.xml";
+    private static final String majorDataFile = "src/majors.xml";
+    private static final String classDataFile = "src/classes.xml";
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadDataOnStart();
 //        openMenus();
         try {
             homePane = FXMLLoader.load(getClass().getResource(ViewConstants.HOME_VIEW));
@@ -120,13 +135,32 @@ public class AdminDashboardController implements Initializable {
     public void logOff(ActionEvent event) throws IOException {
         Stage currentStage = (Stage) btnLogOut.getScene().getWindow();
         currentStage.close();
-        StudentsController.onClose();
+        saveDataOnClose();
         mainApp.showLoginStage();
     }
 
     @FXML
     private void exit(ActionEvent event) {
-        StudentsController.onClose();
+        saveDataOnClose();
         Platform.exit();
+    }
+
+    private void loadDataOnStart() {
+        // loading data
+//        MajorOperations.getInstance().initSomeMajor();
+//        FixedClassOperations.getInstance().initSomeClass();
+//        StudentOperations.getInstance().initSomeStudent();
+
+        FixedClassOperations.getInstance().setDataList(new DataHelper<FixedClass>(classDataFile).readData());
+        MajorOperations.getInstance().setDataList(new DataHelper<Major>(majorDataFile).readData());
+        StudentOperations.getInstance().setDataList(new DataHelper<Student>(studentDataFile).readData());
+        RegistrationOperations.getInstance().setDataList(new DataHelper<Registration>(registrationDataFile).readData());
+    }
+
+    private void saveDataOnClose() {
+        new DataHelper<Registration>(registrationDataFile).saveData(RegistrationOperations.getInstance().getDataList());
+        new DataHelper<FixedClass>(classDataFile).saveData(FixedClassOperations.getInstance().getDataList());
+        new DataHelper<Major>(majorDataFile).saveData(MajorOperations.getInstance().getDataList());
+        new DataHelper<Student>(studentDataFile).saveData(StudentOperations.getInstance().getDataList());
     }
 }

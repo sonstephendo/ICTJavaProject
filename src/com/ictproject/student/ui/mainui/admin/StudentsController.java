@@ -1,10 +1,16 @@
 package com.ictproject.student.ui.mainui.admin;
 
 import com.ictproject.student.alert.AlertMaker;
+import com.ictproject.student.models.mainmodels.Registration;
 import com.ictproject.student.models.mainmodels.Student;
-import com.ictproject.student.models.mainmodels.CreditStudent;
-import com.ictproject.student.models.mainmodels.FixedStudent;
+import com.ictproject.student.models.mainmodels.operation.FixedClassOperations;
+import com.ictproject.student.models.mainmodels.operation.MajorOperations;
+import com.ictproject.student.models.mainmodels.operation.RegistrationOperations;
+import com.ictproject.student.models.mainmodels.operation.StudentOperations;
+import com.ictproject.student.models.mainmodels.academic_credit.CreditStudent;
+import com.ictproject.student.models.mainmodels.fixed_curriculum.FixedStudent;
 import com.ictproject.student.ulti.DBConnect;
+import com.ictproject.student.ulti.DataHelper;
 import com.ictproject.student.ulti.DateUtil;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -36,23 +42,18 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.ResourceBundle;
-
-import static com.ictproject.student.models.mainmodels.StudentList.*;
+import java.util.Set;
 
 public class StudentsController implements Initializable {
-    private static final String studentDataFile = "src/students.xml";
-    /**
-     * Student List data of program
-     */
-//    public static StudentList STUDENTLIST = new StudentList();
+
     /**
      * The data as observable list of student data from databases
      */
-    private ObservableList<Student> searchResult = FXCollections.observableArrayList();
+    private ObservableList<Student> studentObservableList = FXCollections.observableArrayList();
     @FXML
-    private TableView<Student> students;
+    private TableView<Student> studentTableView;
     @FXML
     private TableColumn<Student, Number> studentID;
     @FXML
@@ -86,6 +87,8 @@ public class StudentsController implements Initializable {
     @FXML
     private Label lblAddition;
     @FXML
+    private Label lblMajorClass;
+    @FXML
     private VBox detailsBox;
     private ResultSet rs;
     @FXML
@@ -97,44 +100,41 @@ public class StudentsController implements Initializable {
     @FXML
     private JFXButton btnRefresh;
 
-//    public static StudentList getStudentList() {
-//        return STUDENTLIST;
+//    public static void onClose() {
+//        FileOutputStream out = null;
+//        try {
+//            out = new FileOutputStream(studentDataFile);
+//            XMLEncoder encoder = new XMLEncoder(out);
+////            encoder.setExceptionListener(e -> System.out.println("Exception! :"+e.toString()));
+//            encoder.setPersistenceDelegate(LocalDate.class, new PersistenceDelegate() {
+//                @Override
+//                protected Expression instantiate(Object oldInstance, Encoder out) {
+//                    LocalDate localDate = (LocalDate) oldInstance;
+//                    return new Expression(localDate, LocalDate.class, "parse", new Object[]{localDate.toString()});
+//                }
+//            });
+//            encoder.writeObject(StudentOperations.getInstance().getDataList());
+//            encoder.close();
+//            System.out.println("Saved studentTableView list");
+//        } catch (Exception e) {
+//            if (out != null) {
+//                try {
+//                    out.close();
+//                } catch (IOException e1) {
+//                    AlertMaker.showWarning(e1);
+//                }
+//            }
+//            AlertMaker.showWarning(e);
+//        }
 //    }
-
-    public static void onClose() {
-        FileOutputStream out = null;
-        try {
-            out = new FileOutputStream(studentDataFile);
-            XMLEncoder encoder = new XMLEncoder(out);
-//            encoder.setExceptionListener(e -> System.out.println("Exception! :"+e.toString()));
-            encoder.setPersistenceDelegate(LocalDate.class, new PersistenceDelegate() {
-                @Override
-                protected Expression instantiate(Object oldInstance, Encoder out) {
-                    LocalDate localDate = (LocalDate) oldInstance;
-                    return new Expression(localDate, LocalDate.class, "parse", new Object[]{localDate.toString()});
-                }
-            });
-            encoder.writeObject(STUDENTLIST.getStudentData());
-            encoder.close();
-            System.out.println("Saved students list");
-        } catch (Exception e) {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e1) {
-                    AlertMaker.showWarning(e1);
-                }
-            }
-            AlertMaker.showWarning(e);
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initCols();
+        studentTableView.setItems(studentObservableList);
         showStudentDetail(null);
         // adding listener for some observable
-        students.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showStudentDetail(newValue));
+        studentTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showStudentDetail(newValue));
         filter.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.equals(IDFilter)) {
                 searchField.setPromptText("Search by ID");
@@ -142,8 +142,6 @@ public class StudentsController implements Initializable {
                 searchField.setPromptText("Search by Name");
             }
         });
-        // loading data
-        STUDENTLIST.setStudentData(readStudentData());
     }
 
     private void initCols() {
@@ -154,75 +152,51 @@ public class StudentsController implements Initializable {
         educationSystem.setCellValueFactory(cellData -> cellData.getValue().educationSystemProperty());
     }
 
-    private ArrayList<Student> readStudentData() {
-        FileInputStream in = null;
-        ArrayList<Student> arrayList = new ArrayList<>();
-        try {
-            in = new FileInputStream(studentDataFile);
-            XMLDecoder decoder = new XMLDecoder(in);
-            arrayList = (ArrayList<Student>) decoder.readObject();
-            decoder.close();
-        } catch (FileNotFoundException e) {
-            AlertMaker.showWarning(e);
-            try {
-                if (in != null) {
-                    in.close();
-                }
-            } catch (IOException e1) {
-                AlertMaker.showWarning(e1);
-            }
-        } finally {
-            return arrayList;
-        }
-    }
-
     // TODO: 11/03/2018  saved for database import
-    @FXML
-    private void searchHandle2(ActionEvent event) {
-        DBConnect dbConnect = new DBConnect();
-        Connection connection = dbConnect.getConnect();
-        dbConnect.setStudentsController(this);
-
-        students.getItems().clear();
-
-        if (IDFilter.isSelected()) {
-            String query = "SELECT * FROM Student WHERE NAME LIKE '%" + IDFilter.getText() + "%'";
-            try {
-                rs = connection.createStatement().executeQuery(query);
-                dbConnect.setRs(this.rs);
-                System.out.println("Records from Databases");
-                dbConnect.readData();
-
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            dbConnect.getData(Integer.parseInt(searchField.getText()));
-        } else {
-            dbConnect.getData(searchField.getText());
-        }
-
-        students.setItems(searchResult);
-    }
+//    private void searchHandle2(ActionEvent event) {
+//        DBConnect dbConnect = new DBConnect();
+//        Connection connection = dbConnect.getConnect();
+//        dbConnect.setStudentsController(this);
+//
+//        studentTableView.getItems().clear();
+//
+//        if (IDFilter.isSelected()) {
+//            String query = "SELECT * FROM Student WHERE NAME LIKE '%" + IDFilter.getText() + "%'";
+//            try {
+//                rs = connection.createStatement().executeQuery(query);
+//                dbConnect.setRs(this.rs);
+//                System.out.println("Records from Databases");
+//                dbConnect.readData();
+//
+//                rs.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            dbConnect.getData(Integer.parseInt(searchField.getText()));
+//        } else {
+//            dbConnect.getData(searchField.getText());
+//        }
+//
+//
+//    }
 
     @FXML
     private void searchHandle(ActionEvent event) {
-        students.setItems(searchResult);
-        searchResult.clear();
+        studentObservableList.clear();
         String searchText = searchField.getText();
         if (searchText.isEmpty()) {
-            searchResult.setAll(STUDENTLIST.getStudentData());
+            studentObservableList.setAll(StudentOperations.getInstance().getDataList());
         } else {
-            for (Student student : STUDENTLIST.getStudentData()) {
+            for (Student student : StudentOperations.getInstance().getDataList()) {
                 if (filter.getSelectedToggle().equals(IDFilter)) {
                     if (student.getStudentID() == Integer.parseInt(searchText)) {
-                        searchResult.add(student);
+                        studentObservableList.add(student);
                         break;
                     }
                 } else {
                     String studentName = student.getLastName() + " " + student.getFirstName();
                     if (studentName.toLowerCase().contains(searchText.toLowerCase())) {
-                        searchResult.add(student);
+                        studentObservableList.add(student);
                     }
                 }
             }
@@ -242,10 +216,14 @@ public class StudentsController implements Initializable {
             if (student instanceof CreditStudent) {
                 int num = ((CreditStudent) student).getTotalCredits();
                 String totalCredit = Integer.toString(num);
-                lblAddition.setText("Total Credit: " + totalCredit);
+                lblAddition.setText("Credit Taken: " + totalCredit);
+
+                lblMajorClass.setText("Major: "+ ((CreditStudent) student).getMajor().getTitleMajor());
             } else if (student instanceof FixedStudent) {
-                String years = ((FixedStudent) student).getYear();
+                String years = ((FixedStudent) student).getYearOfStudy();
                 lblAddition.setText("Year: " + years);
+
+                lblMajorClass.setText("Class: "+ ((FixedStudent) student).getFixedClass().getClassName());
             }
         } else {
             lbl_fullname.setText("");
@@ -255,6 +233,7 @@ public class StudentsController implements Initializable {
             lblGender.setText("");
             lblBirdthday.setText("");
             lblAddition.setText("");
+            lblMajorClass.setText("");
 
         }
     }
@@ -271,16 +250,15 @@ public class StudentsController implements Initializable {
 
     @FXML
     void refreshTable(ActionEvent event) {
-        students.getItems().clear();
-        searchResult.setAll(STUDENTLIST.getStudentData());
+        studentTableView.getItems().clear();
+        studentObservableList.setAll(StudentOperations.getInstance().getDataList());
     }
 
     @FXML
     void removeStudent(ActionEvent event) {
-        Student removeStudent = students.getSelectionModel().getSelectedItem();
+        Student removeStudent = studentTableView.getSelectionModel().getSelectedItem();
         if (removeStudent != null) {
-            // TODO: 24/03/2018 check valid (sinh viên có tham gia khóa học nào không) maybe
-            STUDENTLIST.deleteStudent(removeStudent);
+            StudentOperations.getInstance().deleteData(removeStudent);
             AlertMaker.showNotification("Successful", "Student Deleted", AlertMaker.image_movie_frame);
         } else {
             AlertMaker.showNotification("Error", "No  Student Selected", AlertMaker.image_cross);

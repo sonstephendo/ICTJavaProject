@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 public class AlertMaker {
-    // TODO: 24/03/2018 Change image maker 
+    // TODO: 24/03/2018 Change image maker
     public static final Image image_checked=new Image("resources/img/checked.png");
     public static final Image image_cross=new Image("resources/img/cross.png");
     public static final Image image_download=new Image("resources/img/download.png");

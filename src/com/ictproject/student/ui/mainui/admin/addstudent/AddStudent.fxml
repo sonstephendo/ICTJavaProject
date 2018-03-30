@@ -49,7 +49,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="393.0" layoutY="421.0" onAction="#submitDetails" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #64DD17;" text="Submit" textFill="WHITE">
+                  <JFXButton fx:id="btnSubmit" buttonType="RAISED" layoutX="393.0" layoutY="421.0" onAction="#submitDetails" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #64DD17;" text="Submit">
                      <graphic>
                         <FontAwesomeIconView glyphName="ARROW_DOWN" size="20" />
                      </graphic>
@@ -57,7 +57,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="554.0" layoutY="421.0" onAction="#goBack" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #40C4FF;" text="Back" textFill="WHITE">
+                  <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="554.0" layoutY="421.0" onAction="#goBack" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #40C4FF;" text="Back">
                      <graphic>
                         <FontAwesomeIconView glyphName="ARROW_LEFT" size="20" />
                      </graphic>
@@ -166,14 +166,22 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="40.0" prefHeight="30.0">
                                  <children>
-                                    <JFXComboBox fx:id="fixedComboBox" prefHeight="25.0" prefWidth="160.0" promptText="Choose Year" HBox.hgrow="ALWAYS" />
-                                    <JFXTextField fx:id="creditNumField" promptText="Credit Num" visible="false" />
+                                    <JFXComboBox fx:id="cbClass" prefHeight="25.0" prefWidth="160.0" promptText="Choose Class" HBox.hgrow="ALWAYS" />
+                                    <JFXComboBox fx:id="cbMajor" layoutX="10.0" layoutY="13.0" prefHeight="25.0" prefWidth="160.0" promptText="Choose Major" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                      </children>
                   </VBox>
+                  <JFXButton fx:id="btnClear" buttonType="RAISED" layoutX="393.0" layoutY="356.0" onAction="#clearForm" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #E1E1E1;" text="Clear">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ARROW_DOWN" size="20" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

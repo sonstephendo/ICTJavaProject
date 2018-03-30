@@ -2,473 +2,832 @@
 <java version="1.8.0_161" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="com.ictproject.student.models.mainmodels.FixedStudent">
+   <object class="com.ictproject.student.models.mainmodels.fixed_curriculum.FixedStudent">
     <void property="address">
-     <string>Ha Noi</string>
+     <string>Bắc Giang</string>
     </void>
     <void property="birthday">
      <object class="java.time.LocalDate" method="parse">
-      <string>1996-10-28</string>
+      <string>1997-06-10</string>
      </object>
     </void>
     <void property="educationSystem">
      <string>Fixed-Curriculum</string>
     </void>
     <void property="email">
-     <string>sonstephendo@gmail.com</string>
+     <string>https://www.facebook.com/hd5c.hust</string>
     </void>
     <void property="firstName">
-     <string>Son</string>
+     <string>Dũng</string>
     </void>
-    <void property="gender">
-     <string>Male</string>
-    </void>
-    <void property="lastName">
-     <string>Do Hong</string>
-    </void>
-    <void property="phone">
-     <string>0966540957</string>
-    </void>
-    <void property="studentID">
-     <int>20143798</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.ictproject.student.models.mainmodels.CreditStudent" id="CreditStudent0">
-    <void property="address">
-     <string>Ha Noi</string>
-    </void>
-    <void property="birthday">
-     <object class="java.time.LocalDate" method="parse">
-      <string>1996-10-27</string>
-     </object>
-    </void>
-    <void property="educationSystem">
-     <string>Academic Credit</string>
-    </void>
-    <void property="email">
-     <string>loveinarmy@gmail.com</string>
-    </void>
-    <void property="firstName">
-     <string>Emy</string>
-    </void>
-    <void property="gender">
-     <string>Female</string>
-    </void>
-    <void property="lastName">
-     <string>Yo</string>
-    </void>
-    <void property="major">
-     <object class="com.ictproject.student.models.mainmodels.Major">
-      <void property="majorCourse">
-       <object class="java.util.ArrayList">
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST246</string>
-          </void>
-          <void property="courseID">
-           <int>246</int>
-          </void>
-          <void property="courseName">
-           <string>Data Structures</string>
-          </void>
-          <void property="creditNum">
-           <int>3</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST288</string>
-          </void>
-          <void property="courseID">
-           <int>288</int>
-          </void>
-          <void property="courseName">
-           <string>Internship for Information Technology</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST227</string>
-          </void>
-          <void property="courseID">
-           <int>227</int>
-          </void>
-          <void property="courseName">
-           <string>Network Operating Systems and Network Infrastructure</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST111</string>
-          </void>
-          <void property="courseID">
-           <int>111</int>
-          </void>
-          <void property="courseName">
-           <string>Introduction to Computer Science and Information Technology</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST121</string>
-          </void>
-          <void property="courseID">
-           <int>121</int>
-          </void>
-          <void property="courseName">
-           <string>Computer Organization and Assembly Language Programming</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST112</string>
-          </void>
-          <void property="courseID">
-           <int>112</int>
-          </void>
-          <void property="courseName">
-           <string>Introduction to Object-Oriented Programming</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST125</string>
-          </void>
-          <void property="courseID">
-           <int>125</int>
-          </void>
-          <void property="courseName">
-           <string>Installing, Configuring and Administering Windows</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST141</string>
-          </void>
-          <void property="courseID">
-           <int>141</int>
-          </void>
-          <void property="courseName">
-           <string>Principles of Computing Using Java I</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>CST222</string>
-          </void>
-          <void property="courseID">
-           <int>222</int>
-          </void>
-          <void property="courseName">
-           <string>Computer Architecture</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>ELT112</string>
-          </void>
-          <void property="courseID">
-           <int>112</int>
-          </void>
-          <void property="courseName">
-           <string>Electricity I</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>ELT150</string>
-          </void>
-          <void property="courseID">
-           <int>150</int>
-          </void>
-          <void property="courseName">
-           <string>The Workings of Personal Computers</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>ELT151</string>
-          </void>
-          <void property="courseID">
-           <int>151</int>
-          </void>
-          <void property="courseName">
-           <string>CISCO - Computer Networking I</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>ELT152</string>
-          </void>
-          <void property="courseID">
-           <int>152</int>
-          </void>
-          <void property="courseName">
-           <string>CISCO - Computer Networking II</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>ELT224</string>
-          </void>
-          <void property="courseID">
-           <int>224</int>
-          </void>
-          <void property="courseName">
-           <string>Electricity II</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>MAT107</string>
-          </void>
-          <void property="courseID">
-           <int>107</int>
-          </void>
-          <void property="courseName">
-           <string>Computer Mathematics Concepts</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>MAT141</string>
-          </void>
-          <void property="courseID">
-           <int>141</int>
-          </void>
-          <void property="courseName">
-           <string>Calculus with Analytic Geometry I</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>MAT142</string>
-          </void>
-          <void property="courseID">
-           <int>142</int>
-          </void>
-          <void property="courseName">
-           <string>Calculus with Analytic Geometry II</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse" id="CreditCourse0">
-          <void property="courseCode">
-           <string>MAT203</string>
-          </void>
-          <void property="courseID">
-           <int>203</int>
-          </void>
-          <void property="courseName">
-           <string>Calculus with Analytic Geometry III</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-          <void property="registeredStudents">
-           <void method="add">
-            <object idref="CreditStudent0"/>
+    <void property="fixedClass">
+     <object class="com.ictproject.student.models.mainmodels.fixed_curriculum.FixedClass" id="FixedClass0">
+      <void property="className">
+       <string>Physic</string>
+      </void>
+      <void property="coursesCatalog">
+       <object class="com.ictproject.student.models.mainmodels.CoursesCatalog" id="CoursesCatalog0">
+        <void property="courseDataSet">
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY230</string>
            </void>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>MAT204</string>
-          </void>
-          <void property="courseID">
-           <int>204</int>
-          </void>
-          <void property="courseName">
-           <string>Differential Equations</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
-        </void>
-        <void method="add">
-         <object class="com.ictproject.student.models.mainmodels.CreditCourse">
-          <void property="courseCode">
-           <string>MAT205</string>
-          </void>
-          <void property="courseID">
-           <int>205</int>
-          </void>
-          <void property="courseName">
-           <string>Discrete Mathematics</string>
-          </void>
-          <void property="creditNum">
-           <int>2</int>
-          </void>
-         </object>
+           <void property="courseName">
+            <string>Physics II</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY246</string>
+           </void>
+           <void property="courseName">
+            <string>Physics III Lab</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>BIO152</string>
+           </void>
+           <void property="courseName">
+            <string>Modern Biology II</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY232</string>
+           </void>
+           <void property="courseName">
+            <string>Physics II Lab</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>CHE250</string>
+           </void>
+           <void property="courseName">
+            <string>Organic Chemistry I</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY245</string>
+           </void>
+           <void property="courseName">
+            <string>Physics III</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>ENG101</string>
+           </void>
+           <void property="courseName">
+            <string>Standard Freshman Composition</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>CHE251</string>
+           </void>
+           <void property="courseName">
+            <string>Organic Chemistry II</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>CHE134</string>
+           </void>
+           <void property="courseName">
+            <string>College Chemistry II</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>ENG102</string>
+           </void>
+           <void property="courseName">
+            <string>Introduction to Literature</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY130</string>
+           </void>
+           <void property="courseName">
+            <string>Physics I</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>ENG121</string>
+           </void>
+           <void property="courseName">
+            <string>Technical Writing</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>CHE133</string>
+           </void>
+           <void property="courseName">
+            <string>College Chemistry I</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>BIO150</string>
+           </void>
+           <void property="courseName">
+            <string>Modern Biology I</string>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.Course">
+           <void property="courseCode">
+            <string>PHY132</string>
+           </void>
+           <void property="courseName">
+            <string>Physics I Lab</string>
+           </void>
+          </object>
+         </void>
         </void>
        </object>
       </void>
-      <void property="nonMajorCourse">
-       <object class="java.util.ArrayList"/>
-      </void>
-      <void property="titleMajor">
-       <string>Major 1</string>
-      </void>
-      <void property="totalCredits">
-       <int>120</int>
-      </void>
      </object>
     </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Hà Quý</string>
+    </void>
     <void property="phone">
-     <string>0966854737</string>
+     <string>0971872297</string>
     </void>
     <void property="studentID">
-     <int>20143799</int>
-    </void>
-    <void property="totalCredits">
-     <int>120</int>
+     <int>20150661</int>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="com.ictproject.student.models.mainmodels.CreditStudent">
+   <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditStudent">
     <void property="address">
-     <string>Thai Nguyen</string>
+     <string>Nam Định</string>
     </void>
     <void property="birthday">
      <object class="java.time.LocalDate" method="parse">
-      <string>1997-05-23</string>
+      <string>1997-03-30</string>
      </object>
     </void>
     <void property="educationSystem">
      <string>Academic Credit</string>
     </void>
     <void property="email">
-     <string>loveinarmy@email.com</string>
+     <string>https://www.facebook.com/vuhai.tran.14</string>
     </void>
     <void property="firstName">
-     <string>Son</string>
+     <string>Dũng</string>
     </void>
     <void property="gender">
      <string>Male</string>
     </void>
     <void property="lastName">
-     <string>Do</string>
+     <string>Trần Vũ</string>
+    </void>
+    <void property="major">
+     <object class="com.ictproject.student.models.mainmodels.academic_credit.Major">
+      <void property="majorCatalog">
+       <object class="com.ictproject.student.models.mainmodels.CoursesCatalog" id="CoursesCatalog1">
+        <void property="courseDataSet">
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO210</string>
+           </void>
+           <void property="courseName">
+            <string>Logic and proof</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC203</string>
+           </void>
+           <void property="courseName">
+            <string>Concurrent programming</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO208</string>
+           </void>
+           <void property="courseName">
+            <string>Databases</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC108</string>
+           </void>
+           <void property="courseName">
+            <string>Linear algebra</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC101</string>
+           </void>
+           <void property="courseName">
+            <string>Continuous mathematics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC202</string>
+           </void>
+           <void property="courseName">
+            <string>Compilers</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC107</string>
+           </void>
+           <void property="courseName">
+            <string>Introduction to formal proof</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC109</string>
+           </void>
+           <void property="courseName">
+            <string>Probability</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC104</string>
+           </void>
+           <void property="courseName">
+            <string>Discrete mathematics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC102</string>
+           </void>
+           <void property="courseName">
+            <string>Design and analysis of algorithms</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO209</string>
+           </void>
+           <void property="courseName">
+            <string>Intelligent systems</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC106</string>
+           </void>
+           <void property="courseName">
+            <string>Imperative programming</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO205</string>
+           </void>
+           <void property="courseName">
+            <string>Computer architecture</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC103</string>
+           </void>
+           <void property="courseName">
+            <string>Digital systems</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC204</string>
+           </void>
+           <void property="courseName">
+            <string>Models of computation</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC105</string>
+           </void>
+           <void property="courseName">
+            <string>Functional programming</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO207</string>
+           </void>
+           <void property="courseName">
+            <string>Computer networks</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC201</string>
+           </void>
+           <void property="courseName">
+            <string>Algorithms</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO206</string>
+           </void>
+           <void property="courseName">
+            <string>Computer graphics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void property="majorCredits">
+       <int>120</int>
+      </void>
+      <void property="minorCatalog">
+       <object class="com.ictproject.student.models.mainmodels.CoursesCatalog"/>
+      </void>
+      <void property="titleMajor">
+       <string>Computer Science</string>
+      </void>
+     </object>
     </void>
     <void property="phone">
-     <string>09668547534</string>
+     <string>0943167098</string>
     </void>
     <void property="studentID">
-     <int>20455434</int>
-    </void>
-    <void property="totalCredits">
-     <int>120</int>
+     <int>20151228</int>
     </void>
    </object>
   </void>
   <void method="add">
-   <object class="com.ictproject.student.models.mainmodels.FixedStudent">
+   <object class="com.ictproject.student.models.mainmodels.fixed_curriculum.FixedStudent">
+    <void property="address">
+     <string>Thái Bình</string>
+    </void>
     <void property="birthday">
      <object class="java.time.LocalDate" method="parse">
-      <string>2000-05-23</string>
+      <string>1997-12-02</string>
      </object>
     </void>
     <void property="educationSystem">
      <string>Fixed-Curriculum</string>
     </void>
+    <void property="email">
+     <string>fb.com/nhatminh.pham.9400</string>
+    </void>
     <void property="firstName">
-     <string>Son4</string>
+     <string>Minh</string>
+    </void>
+    <void property="fixedClass">
+     <object idref="FixedClass0"/>
     </void>
     <void property="gender">
      <string>Male</string>
     </void>
     <void property="lastName">
-     <string>Do2</string>
+     <string>Phạm Nhật</string>
+    </void>
+    <void property="phone">
+     <string>0961014619</string>
     </void>
     <void property="studentID">
-     <int>11111111</int>
+     <int>20152492</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditStudent">
+    <void property="address">
+     <string>Hải Dương</string>
+    </void>
+    <void property="birthday">
+     <object class="java.time.LocalDate" method="parse">
+      <string>1997-01-18</string>
+     </object>
+    </void>
+    <void property="educationSystem">
+     <string>Academic Credit</string>
+    </void>
+    <void property="email">
+     <string>fb.com/vietanhdev</string>
+    </void>
+    <void property="firstName">
+     <string>Anh</string>
+    </void>
+    <void property="gender">
+     <string>Male</string>
+    </void>
+    <void property="lastName">
+     <string>Nguyễn Việt</string>
+    </void>
+    <void property="major">
+     <object class="com.ictproject.student.models.mainmodels.academic_credit.Major">
+      <void property="majorCatalog">
+       <object class="com.ictproject.student.models.mainmodels.CoursesCatalog" id="CoursesCatalog2">
+        <void property="courseDataSet">
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC103</string>
+           </void>
+           <void property="courseName">
+            <string>Digital systems</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC102</string>
+           </void>
+           <void property="courseName">
+            <string>Design and analysis of algorithms</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC108</string>
+           </void>
+           <void property="courseName">
+            <string>Linear algebra</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC101</string>
+           </void>
+           <void property="courseName">
+            <string>Continuous mathematics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC202</string>
+           </void>
+           <void property="courseName">
+            <string>Compilers</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO207</string>
+           </void>
+           <void property="courseName">
+            <string>Computer networks</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC203</string>
+           </void>
+           <void property="courseName">
+            <string>Concurrent programming</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC107</string>
+           </void>
+           <void property="courseName">
+            <string>Introduction to formal proof</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC106</string>
+           </void>
+           <void property="courseName">
+            <string>Imperative programming</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO206</string>
+           </void>
+           <void property="courseName">
+            <string>Computer graphics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC204</string>
+           </void>
+           <void property="courseName">
+            <string>Models of computation</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO205</string>
+           </void>
+           <void property="courseName">
+            <string>Computer architecture</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC104</string>
+           </void>
+           <void property="courseName">
+            <string>Discrete mathematics</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO209</string>
+           </void>
+           <void property="courseName">
+            <string>Intelligent systems</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC105</string>
+           </void>
+           <void property="courseName">
+            <string>Functional programming</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO210</string>
+           </void>
+           <void property="courseName">
+            <string>Logic and proof</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSO208</string>
+           </void>
+           <void property="courseName">
+            <string>Databases</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC109</string>
+           </void>
+           <void property="courseName">
+            <string>Probability</string>
+           </void>
+           <void property="creditNum">
+            <int>2</int>
+           </void>
+          </object>
+         </void>
+         <void method="add">
+          <object class="com.ictproject.student.models.mainmodels.academic_credit.CreditCourse">
+           <void property="courseCode">
+            <string>CSC201</string>
+           </void>
+           <void property="courseName">
+            <string>Algorithms</string>
+           </void>
+           <void property="creditNum">
+            <int>3</int>
+           </void>
+          </object>
+         </void>
+        </void>
+       </object>
+      </void>
+      <void property="majorCredits">
+       <int>120</int>
+      </void>
+      <void property="minorCatalog">
+       <object class="com.ictproject.student.models.mainmodels.CoursesCatalog"/>
+      </void>
+      <void property="titleMajor">
+       <string>Computer Science</string>
+      </void>
+     </object>
+    </void>
+    <void property="phone">
+     <string>01693018197</string>
+    </void>
+    <void property="studentID">
+     <int>20150143</int>
     </void>
    </object>
   </void>

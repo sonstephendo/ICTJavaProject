@@ -86,7 +86,7 @@
                         <Separator prefHeight="17.0" prefWidth="25.0" />
                         <HBox spacing="20.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <TableView fx:id="students" prefHeight="520.0" HBox.hgrow="ALWAYS">
+                              <TableView fx:id="studentTableView" prefHeight="520.0" HBox.hgrow="ALWAYS">
                                  <columns>
                                     <TableColumn fx:id="studentID" editable="false" prefWidth="-1.0" text="Student ID" />
                                     <TableColumn fx:id="firstName" editable="false" minWidth="0.0" prefWidth="-1.0" text="First Name" />
@@ -121,7 +121,7 @@
                            <children>
                               <VBox fx:id="detailsBox" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label fx:id="lblEmail" text="danmlayah@gmail.com" textFill="#333333">
+                                    <Label fx:id="lblEmail" text="\@gmail.com" textFill="#333333">
                                        <font>
                                           <Font name="Roboto Regular" size="14.0" />
                                        </font>
@@ -132,7 +132,7 @@
                                           <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lblPhone" text="+254 717160344" textFill="#333333">
+                                    <Label fx:id="lblPhone" text="000 111222333" textFill="#333333">
                                        <font>
                                           <Font name="Roboto Regular" size="14.0" />
                                        </font>
@@ -143,7 +143,7 @@
                                           <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lblAddress" text="Nairobi,Kenya" textFill="#333333">
+                                    <Label fx:id="lblAddress" text="Hoang Mai, Ha Noi" textFill="#333333">
                                        <font>
                                           <Font name="Roboto Regular" size="14.0" />
                                        </font>
@@ -166,7 +166,7 @@
                                           <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lblBirdthday" text="27/10/1996" textFill="#333333" VBox.vgrow="ALWAYS">
+                                    <Label fx:id="lblBirdthday" text="01/01/2000" textFill="#333333" VBox.vgrow="ALWAYS">
                                        <font>
                                           <Font name="Roboto Regular" size="14.0" />
                                        </font>
@@ -178,6 +178,17 @@
                                        </padding>
                                     </Label>
                                     <Separator prefHeight="0.0" prefWidth="280.0" />
+                                    <Label fx:id="lblMajorClass" layoutX="20.0" layoutY="261.0" text="Major/Class" textFill="#333333">
+                                       <font>
+                                          <Font name="Roboto Regular" size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="UNIVERSITY" size="16.0" wrappingWidth="28.0" />
+                                       </graphic>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </Label>
                                     <Label fx:id="lblAddition" text="Total Credit" textFill="#333333">
                                        <font>
                                           <Font name="Roboto Regular" size="14.0" />

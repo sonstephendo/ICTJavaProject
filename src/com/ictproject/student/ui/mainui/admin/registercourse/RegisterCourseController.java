@@ -1,6 +1,10 @@
 package com.ictproject.student.ui.mainui.admin.registercourse;
 
 import com.ictproject.student.models.mainmodels.*;
+import com.ictproject.student.models.mainmodels.academic_credit.CreditStudent;
+import com.ictproject.student.models.mainmodels.fixed_curriculum.FixedStudent;
+import com.ictproject.student.models.mainmodels.operation.RegistrationOperations;
+import com.ictproject.student.models.mainmodels.operation.StudentOperations;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -12,9 +16,6 @@ import org.controlsfx.control.textfield.TextFields;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static com.ictproject.student.models.mainmodels.StudentList.*;
-import static com.ictproject.student.ui.mainui.admin.RegisterController.registerObservableList;
 
 public class RegisterCourseController implements Initializable {
     @FXML
@@ -40,19 +41,19 @@ public class RegisterCourseController implements Initializable {
     // TODO: 28/03/2018 make this right 
     @FXML
     void submitEnroll(ActionEvent event) {
-        Student student = STUDENTLIST.getStudent(studentField.getText());
+        Student student = StudentOperations.getInstance().getData(studentField.getText());
         Course course = null;
-        Register newRegister = null;
+        Registration newRegistration = null;
         String courseCode = courseField.getText();
         if (student instanceof CreditStudent) {
-            course = ((CreditStudent) student).getMajor().getCourseMajorFromCode(courseCode);
+            course = ((CreditStudent) student).getMajor().getMajorCatalog().getCourse(courseCode);
+        } else if (student instanceof FixedStudent) {
+            course = ((FixedStudent) student).getFixedClass().getCoursesCatalog().getCourse(courseCode);
         }
         if (course != null) {
             // FIXME: 28/03/2018 exception
-//            student.getRegisteredCourses().add(course);
-            course.getRegisteredStudents().add(student);
-            newRegister = new Register(Register.numOfReg++,student,course);
-            registerObservableList.add(newRegister);
+            newRegistration = new Registration(Registration.numOfReg,student,course);
+            RegistrationOperations.getInstance().addData(newRegistration);
         }
 
 
@@ -64,18 +65,21 @@ public class RegisterCourseController implements Initializable {
         initTextField();
     }
 
-    // TODO: 28/03/2018 too good to use
     private void initTextField() {
         autoCompletionStudent = TextFields.bindAutoCompletion(
                 studentField,
-                STUDENTLIST.getStudentData().toArray(new Student[0]));
+                StudentOperations.getInstance().getDataList().toArray(new Student[0]));
 
         studentField.textProperty().addListener((observable, oldValue, newValue) -> {
-            Student student = STUDENTLIST.getStudent(newValue);
-            if (student != null && student instanceof CreditStudent) {
+            Student student = StudentOperations.getInstance().getData(newValue);
+            if (student instanceof CreditStudent) {
                 autoCompletionCourse = TextFields.bindAutoCompletion(
                         courseField,
-                        ((CreditStudent) student).getMajor().getMajorCourse().toArray(new Course[0]));
+                        ((CreditStudent) student).getMajor().getMajorCatalog().getCourseDataSet().toArray(new Course[0]));
+            } else if (student instanceof FixedStudent) {
+                autoCompletionCourse = TextFields.bindAutoCompletion(
+                        courseField,
+                        ((FixedStudent) student).getFixedClass().getCoursesCatalog().getCourseDataSet().toArray(new Course[0]));
             }
         });
 
